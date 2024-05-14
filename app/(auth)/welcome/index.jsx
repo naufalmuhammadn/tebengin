@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, Image, Text, TouchableOpacity, View } from "react-native";
-import welcome from "../../assets/images/welcome.png";
+import { Image, Text, View } from "react-native";
+import welcome from "../../../assets/images/welcome.png";
 import { Link } from "expo-router";
 
 export default function Welcome() {
@@ -17,12 +17,12 @@ export default function Welcome() {
         </Text>
       </View>
       <View className="flex items-center w-full gap-3">
-        <TouchableOpacity className="flex items-center w-3/4 py-3 rounded-md bg-primary">
+        <Link href="/register" className="w-3/4 py-3 text-center rounded-md bg-primary">
           <Text className="text-white font-poppins">Create an account</Text>
-        </TouchableOpacity>
-        <TouchableOpacity className="flex items-center w-3/4 py-3 border rounded-md border-primary">
+        </Link>
+        <Link href="/login" className="w-3/4 py-3 text-center border rounded-md border-primary">
           <Text className="text-primary font-poppins">Log In</Text>
-        </TouchableOpacity>
+        </Link>
       </View>
       <StatusBar style="auto" />
     </View>
