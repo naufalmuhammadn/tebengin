@@ -2,10 +2,11 @@ import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Tabs } from "expo-router";
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "black" }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: "black", headerShown: false }}>
       <Tabs.Screen
         name="home/index"
         options={{
@@ -18,7 +19,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="orders/index"
         options={{
-          title: "Home",
+          title: "Orders",
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name="history" size={24} color={color} />
           ),
@@ -27,9 +28,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile/index"
         options={{
-          title: "Settings",
+          title: "Profile",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <Ionicons name="person" size={24} color={color} />
           ),
         }}
       />

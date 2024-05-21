@@ -23,7 +23,7 @@ export default function Layout() {
   return (
     <Slot className="font-poppins" onLayout={onLayoutRootView}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" />
       </Stack>
     </Slot>
   );
