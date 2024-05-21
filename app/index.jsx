@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View className="items-center justify-center flex-1 bg-white">
       <Text className="font-bold font-poppins">Welcome to TebengInss!</Text>
-      <Link href="/welcome">Welcome</Link>
+      <Link href="/ordersummary">Welcome</Link>
       <StatusBar style="auto" />
     </View>
   );

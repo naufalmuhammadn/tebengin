@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Image, Text, TextInput, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
@@ -6,6 +7,12 @@ import options1 from "../../../assets/images/tebengride.png";
 import profilePic from "../../../assets/images/profile.png";
 
 export default function OrderSummary() {
+  const [rating, setRating] = useState(0);
+
+  const handleRating = (index) => {
+    setRating(index + 1);
+  };
+
   return (
     <View className="flex-1 flex mt-4 p-4 bg-white">
       <Link href="/" className="mb-2">
@@ -25,21 +32,20 @@ export default function OrderSummary() {
           <Text className="text-xs text-gray-500">Order TR-6231231923DA2</Text>
         </View>
       </View>
-
+      <View className="flex-row border-b border-gray-400 mb-2" />
       <Text className="text-base font-bold text-center">
         Bagaimana Syahrial Alzaidan?
       </Text>
       <View className="flex-row mb-4 justify-center">
-        {Array(5)
-          .fill(0)
-          .map((_, index) => (
+        {[...Array(5)].map((_, index) => (
+          <TouchableOpacity key={index} onPress={() => handleRating(index)}>
             <Ionicons
-              key={index}
-              name="star"
+              name={index < rating ? "star" : "star-outline"}
               size={24}
-              color={index < 4 ? "#FFD700" : "#E0E0E0"}
+              color={index < rating ? "#FFD700" : "#E0E0E0"}
             />
-          ))}
+          </TouchableOpacity>
+        ))}
       </View>
 
       <TextInput
@@ -48,6 +54,8 @@ export default function OrderSummary() {
         multiline
         numberOfLines={4}
       />
+      <View className="flex-row border-b border-gray-400 mb-2" />
+
       <View className="flex-row items-center mb-4">
         <Image source={profilePic} className="w-12 h-12 rounded-full" />
         <View className="flex-1 ml-4">
@@ -63,19 +71,30 @@ export default function OrderSummary() {
           </Text>
         </View>
       </View>
+      <View className="flex-row border-b border-gray-400 mb-2" />
 
-      <View className="mb-4">
+      <View className="mb-2">
         <Text className="text-base font-bold mb-2">Detail Perjalanan</Text>
-        <View className="flex-col items-start mb-2">
-          <Ionicons name="location" size={16} />
-          <Text className="text-sm mb-1">Lokasi Jemput</Text>
-          <Text className="text-sm mb-1">Kos Alzaidan</Text>
+        <View className="flex-row justify-between items-center mb-2">
+          <View className="flex-row items-center">
+            <Ionicons name="location" size={16} />
+            <View className="ml-2">
+              <Text className="text-sm">Lokasi Jemput</Text>
+              <Text className="text-sm">Kos Alzaidan</Text>
+            </View>
+          </View>
+          <View className="flex-row items-center">
+            <Ionicons name="location" size={16} />
+            <View className="ml-2">
+              <Text className="text-sm">Lokasi Antar</Text>
+              <Text className="text-sm">Kos Alzaidan</Text>
+            </View>
+          </View>
         </View>
-        <Text className="text-sm mb-1">
-          <Ionicons name="location" size={16} /> Lokasi Tujuan: Institut
-          Teknologi Bandung
-        </Text>
       </View>
+
+      <View className="flex-row border-b border-gray-400 mb-2" />
+
       <View className="mb-4">
         <Text className="text-base font-bold mb-2">Detail Pembayaran</Text>
         <Text className="text-sm text-gray-600 mb-1">
