@@ -1,7 +1,8 @@
 import { Slot } from "expo-router";
 import { useFonts } from "expo-font";
-import { useCallback } from 'react';
-import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import { Stack } from 'expo-router/stack';
 
 export default function Layout() {
   const [fontsLoaded, fontError] = useFonts({
@@ -19,5 +20,11 @@ export default function Layout() {
     return null;
   }
 
-  return <Slot className="font-poppins" onLayout={onLayoutRootView}/>;
+  return (
+    <Slot className="font-poppins" onLayout={onLayoutRootView}>
+      <Stack>
+        <Stack.Screen name="(tabs)" />
+      </Stack>
+    </Slot>
+  );
 }
