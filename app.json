@@ -13,8 +13,9 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "supportsTablet": true,
       "googleServicesFile": "./GoogleService-Info.plist",
-      "supportsTablet": true
+      "bundleIdentifier": "com.ppam.tebengin"
     },
     "android": {
       "googleServicesFile": "./google-services.json",
