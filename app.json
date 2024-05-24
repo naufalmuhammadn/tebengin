@@ -13,13 +13,16 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ppam.tebengin"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -34,6 +37,16 @@
       }
     },
     "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
       "expo-router",
       [
         "expo-font",

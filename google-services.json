@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "239458108126",
+    "project_id": "tebengin-mobile-app",
+    "storage_bucket": "tebengin-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239458108126:android:bd91103f3319e6a60eb84f",
+        "android_client_info": {
+          "package_name": "com.ppam.tebengin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyYOPpytZDSwHWNaXdSpidVq5JxOv7SRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
