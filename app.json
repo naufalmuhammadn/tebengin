@@ -19,7 +19,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w"
+        }
+      },
+      "package": "com.tebengin.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -44,6 +50,14 @@
           ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d74b63ff-83fc-4be6-9824-accf33a2873e"
+      }
+    }
   }
 }

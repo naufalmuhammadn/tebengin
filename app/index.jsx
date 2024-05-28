@@ -9,6 +9,8 @@ export default function App() {
       <Link href="/ordersummary">Welcome</Link>
       <Link href="/welcome">Welcome</Link>
       <Link href="/profile">Profile</Link>
+      <Link href="/destination">destination</Link>
+      <Link href="/search">search</Link>
       <StatusBar style="auto" />
     </View>
   );
