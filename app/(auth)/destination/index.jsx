@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, TextInput, SafeAreaView, PermissionsAndroid, Platform, Alert } from "react-native";
+import { View, TextInput, SafeAreaView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import Geolocation from "react-native-geolocation-service";
 
 import styles from "./styles.js";
 import PlaceRow from "../../../components/PlaceRow.jsx";
@@ -37,47 +36,6 @@ const DestinationSearch = (props) => {
   useEffect(() => {
     checkNavigation();
   }, [originPlace, destinationPlace]);
-
-  useEffect(() => {
-    if (Platform.OS === 'android') {
-      requestLocationPermission();
-    } else {
-      getCurrentLocation();
-    }
-  }, []);
-
-  const requestLocationPermission = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: "Location Access Required",
-          message: "This app needs to access your location",
-          buttonPositive: "OK",
-        }
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        getCurrentLocation();
-      } else {
-        Alert.alert("Permission Denied");
-      }
-    } catch (err) {
-      console.warn(err);
-    }
-  };
-
-  const getCurrentLocation = () => {
-    Geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position);
-        // You can use the position here to set an initial place or for other purposes
-      },
-      (error) => {
-        console.error(error);
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-    );
-  };
   
   return (
     <SafeAreaView>
@@ -89,8 +47,6 @@ const DestinationSearch = (props) => {
           }}
           enablePoweredByContainer={false}
           suppressDefaultStyles
-          currentLocation={true}
-          currentLocationLabel="Current location"
           styles={{
             textInput: styles.textInput,
             container: styles.autocompleteContainer,
