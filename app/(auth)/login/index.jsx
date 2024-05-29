@@ -7,14 +7,31 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Link, Redirect } from "expo-router";
+import { Link, Redirect, router } from "expo-router";
 import { SocialIcon } from "../../../constant/SocialIcon";
 import { useGlobalContext } from "../../../context/GlobalProvider";
+import { useState } from "react";
+import { auth } from "../../../firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { loading, isLogged } = useGlobalContext();
 
   if (!loading && isLogged) return <Redirect href="/home" />;
+
+  const handleSignIn = () => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          console.log("login success")
+          router.replace("/home")
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+  }
+
   return (
     <View className="justify-center gap-3 px-6 py-16 bg-white font-poppins">
       <Link href="/welcome" className="mb-4">
@@ -28,15 +45,19 @@ export default function Login() {
       </Text>
       <TextInput
         placeholder="Email or Phone Number"
+        value={email}
+        onChangeText={setEmail}
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Enter Your Password"
+        value={password}
+        onChangeText={setPassword}
         secureTextEntry
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
       />
       <Text className="font-semibold text-right text-secondary font-poppins">Forget Password?</Text>
-      <TouchableOpacity className="items-center w-full py-3 rounded bg-primary">
+      <TouchableOpacity onPress={handleSignIn} className="items-center w-full py-3 rounded bg-primary">
         <Text className="font-semibold text-white font-poppins">Sign In</Text>
       </TouchableOpacity>
       <View className="flex flex-row items-center space-x-2">
