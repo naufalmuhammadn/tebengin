@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
-import styles from "../app/(auth)/destination/styles";
+import styles from "./styles";
 
 const PlaceRow = ({ data }) => {
   return (

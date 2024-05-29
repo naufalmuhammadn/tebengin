@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Image, FlatList } from "react-native";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import { Image, Platform } from "react-native";
+import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
 import cars from "../assets/data/cars";
@@ -32,7 +32,7 @@ const HomeMap = (props) => {
   return (
     <MapView
       style={{ width: "100%", height: "100%" }}
-      provider={PROVIDER_GOOGLE}
+      provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       showsUserLocation={true}
       initialRegion={{
         latitude: location ? location.coords.latitude : -6.8962725,

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
 import originPoint from "../assets/images/originPoint.png";
 import destinationPoint from "../assets/images/destinationPoint.png";
-import { Image } from "react-native";
+import { Image, Platform } from "react-native";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w";
 
@@ -52,7 +52,7 @@ const RouteMap = ({ origin, destination }) => {
   return (
     <MapView
       style={{ width: "100%", height: "100%" }}
-      provider={PROVIDER_GOOGLE}
+      provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       showsUserLocation={true}
       initialRegion={{
         latitude: originLoc.latitude,

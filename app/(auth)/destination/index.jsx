@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, TextInput, SafeAreaView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
-import styles from "./styles.js";
+import styles from "../../../components/styles.js";
 import PlaceRow from "../../../components/PlaceRow.jsx";
 import { router, useLocalSearchParams } from "expo-router";
-
-navigator.geolocation = require("react-native-geolocation-service");
 
 const homePlace = {
   description: "Home",
