@@ -17,7 +17,8 @@ import { SocialIcon } from "../../../constant/SocialIcon";
 
 import { auth, db } from "../../../firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { count, doc, setDoc } from "firebase/firestore";
+import { updateProfile } from "firebase/auth";
 
 import { useGlobalContext } from "../../../context/GlobalProvider";
 
@@ -48,14 +49,19 @@ export default function Register() {
 
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        const userData = { email, password, displayName };
-        setDoc(doc(db, "users", auth.currentUser.uid), userData);
-        router.replace("/orders")
-      })
-      .catch((e) => {
-        console.log(e);
+    .then((res) => {
+      return updateProfile(res.user, {
+        displayName,
       });
+    })
+    .then(() => {
+      const userData = { email, password, displayName, countryCode, phoneNumber, gender };
+      setDoc(doc(db, "users", auth.currentUser.uid), userData);
+      router.replace("/orders")
+    })
+    .catch((e) => {
+      console.log(e);
+    });
   };
 
   return (
@@ -100,6 +106,8 @@ export default function Register() {
         />
         <TextInput
           placeholder="Phone Number"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
           keyboardType="phone-pad"
           className="w-full font-poppins"
         />
@@ -130,8 +138,8 @@ export default function Register() {
           <Text className="text-secondary">Privacy policy.</Text>
         </Text>
       </View>
-      <TouchableOpacity className="items-center w-full py-3 rounded bg-primary">
-        <Text className="font-semibold text-white font-poppins" onPress={handleSignUp}>Sign Up</Text>
+      <TouchableOpacity onPress={handleSignUp} className="items-center w-full py-3 rounded bg-primary">
+        <Text className="font-semibold text-white font-poppins">Sign Up</Text>
       </TouchableOpacity>
       <View className="flex flex-row items-center space-x-2">
         <View className="flex-1 h-0.5 bg-gray-200" />
