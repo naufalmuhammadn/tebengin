@@ -13,13 +13,23 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tebengin.app",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w"
+        }
+      },
+      "package": "com.tebengin.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -43,7 +53,21 @@
             "./assets/fonts/Poppins-Bold.ttf"
           ]
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d74b63ff-83fc-4be6-9824-accf33a2873e"
+      }
+    }
   }
 }
