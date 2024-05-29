@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
+import originPoint from "../assets/images/originPoint.png";
+import destinationPoint from "../assets/images/destinationPoint.png";
+import { Image } from "react-native";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w";
 
@@ -67,9 +70,15 @@ const RouteMap = ({ origin, destination }) => {
           strokeColor="blue"
         />
       )}
-      {originFinal && <Marker coordinate={originLoc} title={"Origin"} />}
+      {originFinal && (
+        <Marker coordinate={originLoc} title={"Origin"} icon={originPoint}>
+          {/* <Image source={originPoint} className="w-5 h-5" /> */}
+        </Marker>
+      )}
       {destinationLoc && (
-        <Marker coordinate={destinationLoc} title={"Destination"} />
+        <Marker coordinate={destinationLoc} title={"Destination"} icon={destinationPoint}>
+          {/* <Image source={destinationPoint} className="w-5 h-5" /> */}
+        </Marker>
       )}
     </MapView>
   );
