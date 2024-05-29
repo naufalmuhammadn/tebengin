@@ -13,7 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tebengin.app",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w"
+      }
     },
     "android": {
       "adaptiveIcon": {
