@@ -2,13 +2,13 @@ export default [
     {
         id: '0',
         type: 'bike',
-        price: 22000,
+        price: 5000,
         duration: 45,
     },
     {
         id: '1',
         type: 'car',
-        price: 22000,
+        price: 10000,
         duration: 30,
     },
 ]

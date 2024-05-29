@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
+import { formatPrice } from "../utils/utils";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -26,7 +27,7 @@ const RideTypeRow = (props) => {
       </View>
       <View className="flex flex-row justify-end w-24">
         <Ionicons name={"pricetag"} size={18} color={"#42d742"} />
-        <Text className="ml-1 text-lg font-bold">est. Rp{type.price}</Text>
+        <Text className="ml-1 font-bold">{formatPrice(type.price)}</Text>
       </View>
     </View>
   );

@@ -63,11 +63,11 @@ const SearchResults = (props) => {
 
   return (
     <View style={{ display: "flex", justifyContent: "space-between" }}>
-      <View style={{ height: Dimensions.get("window").height - 400 }}>
+      <View className="h-3/4">
         <RouteMap origin={originPlace} destination={destinationPlace} />
       </View>
 
-      <View style={{ height: 400 }}>
+      <View style={{ height: 200 }}>
         <RideTypes typeState={typeState} onSubmit={onSubmit} />
       </View>
     </View>
