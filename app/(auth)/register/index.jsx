@@ -9,15 +9,24 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import CountryPicker from "react-native-country-picker-modal";
-import { Link } from "expo-router";
+import { Link, Redirect, router } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import { SocialIcon } from "../../../constant/SocialIcon";
 
+import { auth, db } from "../../../firebase/config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+
+import { useGlobalContext } from "../../../context/GlobalProvider";
+
 export default function Register() {
   const [countryCode, setCountryCode] = useState("ID");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [gender, setGender] = useState(null);
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([
@@ -33,6 +42,21 @@ export default function Register() {
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
   };
+  const { loading, isLogged } = useGlobalContext();
+
+  if (!loading && isLogged) return <Redirect href="/orders" />;
+
+  const handleSignUp = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        const userData = { email, password, displayName };
+        setDoc(doc(db, "users", auth.currentUser.uid), userData);
+        router.replace("/orders")
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <View className="justify-center gap-3 px-6 py-16 bg-white font-poppins">
@@ -47,15 +71,21 @@ export default function Register() {
       </Text>
       <TextInput
         placeholder="Name"
+        value={displayName}
+        onChangeText={setDisplayName}
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Email"
         autoComplete="email"
+        value={email}
+        onChangeText={setEmail}
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
         secureTextEntry
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
       />
@@ -101,7 +131,7 @@ export default function Register() {
         </Text>
       </View>
       <TouchableOpacity className="items-center w-full py-3 rounded bg-primary">
-        <Text className="font-semibold text-white font-poppins">Sign Up</Text>
+        <Text className="font-semibold text-white font-poppins" onPress={handleSignUp}>Sign Up</Text>
       </TouchableOpacity>
       <View className="flex flex-row items-center space-x-2">
         <View className="flex-1 h-0.5 bg-gray-200" />

@@ -7,10 +7,14 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, Redirect } from "expo-router";
 import { SocialIcon } from "../../../constant/SocialIcon";
+import { useGlobalContext } from "../../../context/GlobalProvider";
 
 export default function Login() {
+  const { loading, isLogged } = useGlobalContext();
+
+  if (!loading && isLogged) return <Redirect href="/home" />;
   return (
     <View className="justify-center gap-3 px-6 py-16 bg-white font-poppins">
       <Link href="/welcome" className="mb-4">

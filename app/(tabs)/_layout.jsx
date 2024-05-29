@@ -1,10 +1,13 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FontAwesome5 } from '@expo/vector-icons';
-import { Tabs } from "expo-router";
+import { Tabs, Redirect } from "expo-router";
 import { Ionicons } from '@expo/vector-icons';
+import { useGlobalContext } from "../../context/GlobalProvider";
 
 export default function TabLayout() {
+  const { loading, isLogged } = useGlobalContext();
+  if (!loading && !isLogged) return <Redirect href="/register" />;
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: "black", headerShown: false }}>
       <Tabs.Screen

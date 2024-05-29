@@ -4,6 +4,8 @@ import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { Stack } from 'expo-router/stack';
 
+import GlobalProvider from "../context/GlobalProvider";
+
 export default function Layout() {
   const [fontsLoaded, fontError] = useFonts({
     "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
@@ -21,10 +23,12 @@ export default function Layout() {
   }
 
   return (
-    <Slot className="font-poppins" onLayout={onLayoutRootView}>
-      <Stack>
-        <Stack.Screen name="(tabs)" />
-      </Stack>
-    </Slot>
+    <GlobalProvider>
+      <Slot className="font-poppins" onLayout={onLayoutRootView}>
+        <Stack>
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </Slot>
+    </GlobalProvider>
   );
 }

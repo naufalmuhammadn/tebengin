@@ -2,7 +2,18 @@ import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 
 import profile from "../../../assets/images/profile.png";
 
+import { auth } from "../../../firebase/config";
+import { signOut } from "firebase/auth";
+
 export default function Profile() {
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+            console.log("Sign out success");
+          }).catch((error) => {
+            console.log(error);
+          });
+    }
+
     return (
     <View className="justify-center flex-1 gap-4 px-6 bg-white font-poppins">
         <View className="items-center justify-center gap-4 ">
@@ -42,7 +53,7 @@ export default function Profile() {
                 <Text className="text-white font-poppins">Update</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity href="/" className="items-center w-full py-3 border rounded-md border-secondary bg-secondary">
+            <TouchableOpacity href="/" onPress={handleSignOut} className="items-center w-full py-3 border rounded-md border-secondary bg-secondary">
                 <Text className="text-white font-poppins">Sign Out</Text>
             </TouchableOpacity>
         </View>
