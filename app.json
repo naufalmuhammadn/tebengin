@@ -29,7 +29,8 @@
           "apiKey": "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w"
         }
       },
-      "package": "com.tebengin.app"
+      "package": "com.tebengin.app",
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
     },
     "web": {
       "favicon": "./assets/favicon.png",

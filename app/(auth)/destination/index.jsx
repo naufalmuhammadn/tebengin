@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, TextInput, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 import styles from "../../../components/styles.js";
 import PlaceRow from "../../../components/PlaceRow.jsx";
-import { router, useLocalSearchParams } from "expo-router";
+import { router } from "expo-router";
 
 const homePlace = {
   description: "Home",
@@ -44,6 +44,8 @@ const DestinationSearch = (props) => {
             setOriginPlace({ data, details });
           }}
           enablePoweredByContainer={false}
+          currentLocation={true}
+          currentLocationLabel="Current location"
           suppressDefaultStyles
           styles={{
             textInput: styles.textInput,
