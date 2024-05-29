@@ -7,6 +7,7 @@ import RideTypes from "../../../components/RideTypes";
 
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { useLocalSearchParams } from "expo-router";
+import HomeSearch from "../../../components/HomeSearch";
 
 const SearchResults = (props) => {
   const typeState = useState(null);
@@ -67,6 +68,7 @@ const SearchResults = (props) => {
         <RouteMap origin={originPlace} destination={destinationPlace} />
       </View>
 
+      <HomeSearch origin={originPlace} destination={destinationPlace}/>
       <View style={{ height: 200 }}>
         <RideTypes typeState={typeState} onSubmit={onSubmit} />
       </View>

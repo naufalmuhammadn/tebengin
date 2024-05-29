@@ -1,0 +1,420 @@
+{
+    "data": {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+            "location": {
+                "lat": -6.894637099999999,
+                "lng": 107.6149016
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -6.893390769708497,
+                    "lng": 107.6162461302915
+                },
+                "southwest": {
+                    "lat": -6.896088730291502,
+                    "lng": 107.6135481697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+        "icon_background_color": "#FF9E67",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+        "name": "Ayam penyet Khylla Khas Jowo",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 2806,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                ],
+                "photo_reference": "AUGGfZk07deZGtkZJpfttbPn0T9HU6RQ9-RP3ZoMBnutNL3_cp6wOu8YmPwwUecQakksXIc5TH7novBls5uPtlYvZtDcQ2zlueDqqubjvUcfs-CLrTicggdOJ-kM5pAdOE-8Sj-qzp2R64h02AVXh8xm3MSkxTirYulEWzjDHGZ-8b-QijwY",
+                "width": 1980
+            }
+        ],
+        "place_id": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
+        "plus_code": {
+            "compound_code": "4J47+4X Lebak Gede, Bandung City, West Java, Indonesia",
+            "global_code": "6P594J47+4X"
+        },
+        "rating": 5,
+        "reference": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
+        "scope": "GOOGLE",
+        "types": [
+            "restaurant",
+            "point_of_interest",
+            "food",
+            "establishment"
+        ],
+        "user_ratings_total": 4,
+        "vicinity": "Jalan Hasanudin No.3, Lebakgede"
+    },
+    "details": {
+        "address_components": [
+            {
+                "long_name": "No.3",
+                "short_name": "No.3",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Jalan Hasanudin",
+                "short_name": "Jl. Hasanudin",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Lebakgede",
+                "short_name": "Lebakgede",
+                "types": [
+                    "administrative_area_level_4",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Kecamatan Coblong",
+                "short_name": "Kecamatan Coblong",
+                "types": [
+                    "administrative_area_level_3",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Kota Bandung",
+                "short_name": "Kota Bandung",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Jawa Barat",
+                "short_name": "Jawa Barat",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Indonesia",
+                "short_name": "ID",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "40132",
+                "short_name": "40132",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "adr_address": "<span class=\"street-address\">Jl. Hasanudin No.3</span>, <span class=\"extended-address\">Lebakgede, Kecamatan Coblong</span>, <span class=\"locality\">Kota Bandung</span>, <span class=\"region\">Jawa Barat</span> <span class=\"postal-code\">40132</span>, <span class=\"country-name\">Indonesia</span>",
+        "business_status": "OPERATIONAL",
+        "current_opening_hours": {
+            "open_now": true,
+            "periods": [
+                {
+                    "close": {
+                        "date": "2024-06-02",
+                        "day": 0,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-06-02",
+                        "day": 0,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2024-06-03",
+                        "day": 1,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-06-03",
+                        "day": 1,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2024-06-04",
+                        "day": 2,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-06-04",
+                        "day": 2,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2024-05-29",
+                        "day": 3,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-05-29",
+                        "day": 3,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2024-05-30",
+                        "day": 4,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-05-30",
+                        "day": 4,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2024-05-31",
+                        "day": 5,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-05-31",
+                        "day": 5,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2024-06-01",
+                        "day": 6,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "date": "2024-06-01",
+                        "day": 6,
+                        "time": "1100"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "Monday: 11:00 AM – 11:00 PM",
+                "Tuesday: 11:00 AM – 11:00 PM",
+                "Wednesday: 11:00 AM – 11:00 PM",
+                "Thursday: 11:00 AM – 11:00 PM",
+                "Friday: 11:00 AM – 11:00 PM",
+                "Saturday: 11:00 AM – 11:00 PM",
+                "Sunday: 11:00 AM – 11:00 PM"
+            ]
+        },
+        "delivery": true,
+        "dine_in": true,
+        "formatted_address": "Jl. Hasanudin No.3, Lebakgede, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132, Indonesia",
+        "formatted_phone_number": "0895-3552-32530",
+        "geometry": {
+            "location": {
+                "lat": -6.894637099999999,
+                "lng": 107.6149016
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -6.893390769708497,
+                    "lng": 107.6162461302915
+                },
+                "southwest": {
+                    "lat": -6.896088730291502,
+                    "lng": 107.6135481697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+        "icon_background_color": "#FF9E67",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+        "international_phone_number": "+62 895-3552-32530",
+        "name": "Ayam penyet Khylla Khas Jowo",
+        "opening_hours": {
+            "open_now": true,
+            "periods": [
+                {
+                    "close": {
+                        "day": 0,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 0,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 1,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 1,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 2,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 2,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 3,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 3,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 4,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 4,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 5,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 5,
+                        "time": "1100"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 6,
+                        "time": "2300"
+                    },
+                    "open": {
+                        "day": 6,
+                        "time": "1100"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "Monday: 11:00 AM – 11:00 PM",
+                "Tuesday: 11:00 AM – 11:00 PM",
+                "Wednesday: 11:00 AM – 11:00 PM",
+                "Thursday: 11:00 AM – 11:00 PM",
+                "Friday: 11:00 AM – 11:00 PM",
+                "Saturday: 11:00 AM – 11:00 PM",
+                "Sunday: 11:00 AM – 11:00 PM"
+            ]
+        },
+        "photos": [
+            {
+                "height": 2806,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                ],
+                "photo_reference": "AUGGfZk919qOP0CR_-bpYeivau9gulJSj9WvUMRuM7JnxSFf0u_00SJWqbO8L-psR24z4Of7u76XeYA1adRoHTA-y0TUk2P3gEujevN9i7-HhWshFnh3J9BoJOFzRXI7Me4U9BE66wVMDYtLHE0B04Xf7hE_LaffqSenhZ3_vb9B569FrbxR",
+                "width": 1980
+            },
+            {
+                "height": 1920,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                ],
+                "photo_reference": "AUGGfZkgrk2iM1xgMoKD_jQsadTkleDyFtApfEbvSUF46O1_x8Tki6hW_29FG5b7IyyzGfS-3xkDBk8EjaAAojDiP-C9y-gtTVRVqi7seDpyzfJRD0xLJIVAnkv7qzZXW7LZMVBo8kIneUgndHnLND0Hl58T-AZIc20JLGBD0M8VafWNgi_8",
+                "width": 1080
+            },
+            {
+                "height": 1920,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                ],
+                "photo_reference": "AUGGfZmT7LOx04SUE2hXDbj0hWk5bzcyAieCit_jYByi4UzgvTty-UyLYdxMJ2Wt_TZAuhbUIAU0TxPpsde2oJHMuuRYTmJSu9VgVwiyBOvXxka79pp3eIWUQ_vLKdQ8RbGQfjuCYBQkMDV8sxzkFZ7dVJL5UFXY9yt5SMFwJUhYdKXnCDJj",
+                "width": 1080
+            }
+        ],
+        "place_id": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
+        "plus_code": {
+            "compound_code": "4J47+4X Lebak Gede, Bandung City, West Java, Indonesia",
+            "global_code": "6P594J47+4X"
+        },
+        "rating": 5,
+        "reference": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
+        "reviews": [
+            {
+                "author_name": "Adi Firmansyah",
+                "author_url": "https://www.google.com/maps/contrib/101225978303835421435/reviews",
+                "language": "en",
+                "original_language": "id",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocIIDaJ8K23sz3hzE2khzPy6ex4lx44x7UGMTYjuLyWy0jiAXw=s128-c0x00000000-cc-rp-mo-ba3",
+                "rating": 5,
+                "relative_time_description": "4 years ago",
+                "text": "The place is clean, the kale is delicious & the price is affordable.",
+                "time": 1566394301,
+                "translated": true
+            },
+            {
+                "author_name": "Ikbal Ramadhan",
+                "author_url": "https://www.google.com/maps/contrib/110844662088464419607/reviews",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU1e3Mdp7-X0xL2TQuioAEEXC7vM0nUDAvPx-azLgZvyAUji8QUug=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "a year ago",
+                "text": "",
+                "time": 1678025886,
+                "translated": false
+            },
+            {
+                "author_name": "aris cole",
+                "author_url": "https://www.google.com/maps/contrib/100667435816385498005/reviews",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU8Yj3qPdgEEOcJKfvOND6KRSQuJ2lK67M6Ru6G0Up_kd_2dDtw=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "2 years ago",
+                "text": "",
+                "time": 1626802986,
+                "translated": false
+            },
+            {
+                "author_name": "Muhammad Amarudin",
+                "author_url": "https://www.google.com/maps/contrib/113581675584151002458/reviews",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXjmTH4m7x8iB-tyjwbqgNo5roluhlN3vNCqhBEhHrXwzVGl5mS=s128-c0x00000000-cc-rp-mo-ba3",
+                "rating": 5,
+                "relative_time_description": "3 years ago",
+                "text": "",
+                "time": 1613826916,
+                "translated": false
+            }
+        ],
+        "serves_beer": false,
+        "serves_dinner": true,
+        "serves_lunch": true,
+        "serves_wine": false,
+        "takeout": true,
+        "types": [
+            "restaurant",
+            "point_of_interest",
+            "food",
+            "establishment"
+        ],
+        "url": "https://maps.google.com/?cid=3609153868020499088",
+        "user_ratings_total": 4,
+        "utc_offset": 420,
+        "vicinity": "Jalan Hasanudin No.3, Lebakgede"
+    }
+}
