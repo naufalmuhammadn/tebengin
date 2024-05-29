@@ -4,11 +4,13 @@ import profile from "../../../assets/images/profile.png";
 
 import { auth } from "../../../firebase/config";
 import { signOut } from "firebase/auth";
+import { router } from "expo-router";
 
 export default function Profile() {
     const handleSignOut = () => {
         signOut(auth).then(() => {
             console.log("Sign out success");
+            router.replace("/welcome");
           }).catch((error) => {
             console.log(error);
           });
