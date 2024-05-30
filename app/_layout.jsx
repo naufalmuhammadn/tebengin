@@ -29,7 +29,6 @@ export default function Layout() {
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         Location.installWebGeolocationPolyfill();
         navigator.geolocation.getCurrentPosition();
-        console.log("You can use the location");
       } else {
         console.log("Location permission denied");
       }

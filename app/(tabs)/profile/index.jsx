@@ -31,7 +31,6 @@ export default function Profile() {
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-            console.log("Sign out success");
             router.replace("/welcome");
           }).catch((error) => {
             console.log(error);

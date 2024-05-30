@@ -24,7 +24,6 @@ export default function Login() {
   const handleSignIn = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-          console.log("login success")
           router.replace("/home")
         })
         .catch((e) => {
@@ -47,14 +46,14 @@ export default function Login() {
         placeholder="Email or Phone Number"
         value={email}
         onChangeText={setEmail}
-        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Enter Your Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
       <Text className="font-semibold text-right text-secondary font-poppins">Forget Password?</Text>
       <TouchableOpacity onPress={handleSignIn} className="items-center w-full py-3 rounded bg-primary">

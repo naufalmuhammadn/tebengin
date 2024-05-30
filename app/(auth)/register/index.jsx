@@ -49,19 +49,26 @@ export default function Register() {
 
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
-    .then((res) => {
-      return updateProfile(res.user, {
-        displayName,
+      .then((res) => {
+        return updateProfile(res.user, {
+          displayName,
+        });
+      })
+      .then(() => {
+        const userData = {
+          email,
+          password,
+          displayName,
+          countryCode,
+          phoneNumber,
+          gender,
+        };
+        setDoc(doc(db, "users", auth.currentUser.uid), userData);
+        router.replace("/orders");
+      })
+      .catch((e) => {
+        console.log(e);
       });
-    })
-    .then(() => {
-      const userData = { email, password, displayName, countryCode, phoneNumber, gender };
-      setDoc(doc(db, "users", auth.currentUser.uid), userData);
-      router.replace("/orders")
-    })
-    .catch((e) => {
-      console.log(e);
-    });
   };
 
   return (
@@ -79,21 +86,21 @@ export default function Register() {
         placeholder="Name"
         value={displayName}
         onChangeText={setDisplayName}
-        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Email"
         autoComplete="email"
         value={email}
         onChangeText={setEmail}
-        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+        className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
       <View className="flex flex-row items-center w-full px-4 py-3 space-x-2 border border-gray-200 rounded-md">
         <CountryPicker
@@ -138,7 +145,10 @@ export default function Register() {
           <Text className="text-secondary">Privacy policy.</Text>
         </Text>
       </View>
-      <TouchableOpacity onPress={handleSignUp} className="items-center w-full py-3 rounded bg-primary">
+      <TouchableOpacity
+        onPress={handleSignUp}
+        className="items-center w-full py-3 rounded bg-primary"
+      >
         <Text className="font-semibold text-white font-poppins">Sign Up</Text>
       </TouchableOpacity>
       <View className="flex flex-row items-center space-x-2">
@@ -176,6 +186,8 @@ const styles = StyleSheet.create({
   },
   dropdownContainer: {
     borderWidth: 1,
+    marginTop: 10,
+    marginLeft: 12,
     borderColor: "#e5e7eb",
   },
 });
