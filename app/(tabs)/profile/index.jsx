@@ -1,22 +1,46 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { useState, useEffect } from "react";
 import profile from "../../../assets/images/profile.png";
+import DropDownPicker from "react-native-dropdown-picker";
+import CountryPicker from "react-native-country-picker-modal";
 
-import { auth } from "../../../firebase/config";
+import { setDoc, doc } from "firebase/firestore";
+
+import { auth, db } from "../../../firebase/config";
 import { signOut } from "firebase/auth";
 import { router } from "expo-router";
-import { getUser } from "../../api/users/indes";
+import { getUser } from "../../api/users";
 
 export default function Profile() {
-    const [userData, setUserData] = useState({});
     const [loading, setLoading] = useState(true);
+
+    const [countryCode, setCountryCode] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [displayName, setDisplayName] = useState("");
+    const [email, setEmail] = useState("");
+
+    const onSelectCountry = (country) => {
+        setCountryCode(country.cca2);
+      };
+    
+    const [gender, setGender] = useState(null);
+    const [open, setOpen] = useState(false);
+    const [items, setItems] = useState([
+        { label: "Male", value: "male" },
+        { label: "Female", value: "female" },
+      ]);
+    
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
                 if (auth.currentUser) {
                     const user = await getUser(auth.currentUser.uid);
-                    setUserData(user);
+                    setEmail(user.email);
+                    setDisplayName(user.displayName);
+                    setCountryCode(user.countryCode);
+                    setPhoneNumber(user.phoneNumber);
+                    setGender(user.gender);
                 } else {
                     console.error("No authenticated user found.");
                 }
@@ -28,6 +52,16 @@ export default function Profile() {
         };
         fetchUserData();
     }, []);
+
+    const handleUpdate = async () => {
+        try {
+            const userData = { email, displayName, countryCode, phoneNumber, gender };
+            await setDoc(doc(db, "users", auth.currentUser.uid), userData);
+            console.log("User data updated successfully");
+        } catch (error) {
+            console.error("Error updating user data: ", error);
+        }
+    };
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
@@ -46,34 +80,47 @@ export default function Profile() {
                 source={profile}
                 className="object-cover rounded-full w-[138px] h-[138px]"
             />
-            <Text className="text-xl font-normal text-[#5A5A5A] font-poppins mb-4">Syahrial Alzaidan</Text>
+            <Text className="text-xl font-normal text-[#5A5A5A] font-poppins mb-4">{displayName}</Text>
             <TextInput
-                placeholder={userData.displayName}
+                placeholder={email}
                 placeholderTextColor={"#5A5A5A"}
                 caretHidden
-                className="w-full h-12 px-4 py-3 text-black border border-gray-300 rounded-md focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+                className="w-full h-16 px-4 py-3 text-black border border-gray-300 rounded-md focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
             />
-            <TextInput
-                placeholder={userData.phoneNumber}
-                placeholderTextColor={"#5A5A5A"}
-                keyboardType="phone-pad"
-                className="w-full h-12 px-4 py-3 text-black border border-gray-300 rounded-md focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
-            />
-            <TextInput
-                placeholder={userData.gender}
-                placeholderTextColor={"#5A5A5A"}
-                caretHidden
-                className="w-full h-12 px-4 py-3 text-black border border-gray-300 rounded-md focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
-            />
-            <TextInput
-                placeholder="Jl.Cisitu"
-                placeholderTextColor={"#5A5A5A"}
-                caretHidden
-                className="w-full h-12 px-4 py-3 text-black border border-gray-300 rounded-md focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-black"
+            <View className="flex flex-row items-center w-full h-16 px-4 py-3 space-x-2 text-black border border-gray-300 rounded-md focus:caret-black placeholder:text-gray-200 focus:text-black focus:border-blacK">
+                <CountryPicker
+                    withCallingCode
+                    withFilter
+                    withCallingCodeButton
+                    withAlphaFilter
+                    countryCode={countryCode}
+                    onSelect={onSelectCountry}
+                    size = {1}
+                />
+                <TextInput
+                    placeholder="Phone Number"
+                    value={phoneNumber}
+                    onChangeText={setPhoneNumber}
+                    keyboardType="phone-pad"
+                    className="w-full font-poppins"
+                />
+            </View>
+            <DropDownPicker
+                open={open}
+                value={gender}
+                items={items}
+                setOpen={setOpen}
+                setValue={setGender}
+                setItems={setItems}
+                placeholder="Gender"
+                placeholderStyle={{ color: "#9ca3af" }}
+                style={styles.dropdown}
+                dropDownContainerStyle={styles.dropdownContainer}
+                className="w-full h-16 px-4 py-3"
             />
         </View>
         <View className="items-center justify-center gap-4">
-            <TouchableOpacity href="/" className="items-center w-full py-3 border rounded-md border-primary bg-primary">
+            <TouchableOpacity href="/" onPress={handleUpdate} className="items-center w-full py-3 border rounded-md border-primary bg-primary">
                 <Text className="text-white font-poppins">Update</Text>
             </TouchableOpacity>
 
@@ -84,3 +131,16 @@ export default function Profile() {
     </View>
     )
 }
+
+const styles = StyleSheet.create({
+    dropdown: {
+      borderWidth: 1,
+      borderColor: "#e0e0e0",
+      borderRadius: 4,
+      fontFamily: "Poppins-Regular",
+    },
+    dropdownContainer: {
+      borderWidth: 1,
+      borderColor: "#e0e0e0",
+    },
+  });
