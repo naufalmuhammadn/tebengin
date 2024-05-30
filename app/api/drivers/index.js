@@ -12,7 +12,10 @@ export const getDriversByType = async (type) => {
     const driversRef = collection(db, "drivers");
     const driverQuery = query(driversRef, where("type", "==", type));
     const querySnapshot = await getDocs(driverQuery);
-    const driversList = querySnapshot.docs.map((doc) => doc.data());
+    const driversList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+    }));
     return driversList;
 }
 

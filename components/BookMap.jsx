@@ -8,30 +8,29 @@ import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
 import originPoint from "../assets/images/originPoint.png";
 import destinationPoint from "../assets/images/destinationPoint.png";
-import {
-  Platform,
-  View,
-  TouchableOpacity,
-  Text,
-  ActivityIndicator,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import types from "../assets/data/types";
+import { Platform, View, ActivityIndicator, Button } from "react-native";
 import RideList from "./RideList";
 import { getDriversByType } from "../app/api/drivers";
 import axios from "axios";
 import HomeSearch from "./HomeSearch";
+import { createRide } from "../app/api/rides";
+import { auth } from "../firebase/config";
+import { router } from "expo-router";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w";
 
 const BookMap = ({ origin, destination, type }) => {
   const originFinal = origin ? JSON.parse(JSON.parse(origin)) : null;
-  const destinationFinal = destination ? JSON.parse(JSON.parse(destination)) : null;
-  
+  const destinationFinal = destination
+    ? JSON.parse(JSON.parse(destination))
+    : null;
+
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [drivers, setDrivers] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedDriver, setSelectedDriver] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const getImage = () => {
     if (type === "bike") return require("../assets/images/tebengride.png");
@@ -51,7 +50,7 @@ const BookMap = ({ origin, destination, type }) => {
         setLocation(currentLocation);
 
         const driversData = await getDriversByType(type);
-        
+
         if (currentLocation && driversData.length > 0) {
           const originLocation = `${originFinal.details.geometry.location.lat},${originFinal.details.geometry.location.lng}`;
           const originDrivers = driversData
@@ -106,6 +105,24 @@ const BookMap = ({ origin, destination, type }) => {
       }
     : null;
 
+  const handleSubmit = async () => {
+    if (selectedDriver) {
+      setIsSubmitting(true);
+      const orderSubmit = await createRide(
+        destinationFinal.data.description,
+        selectedDriver.id,
+        originFinal.data.description,
+        5000,
+        auth.currentUser.uid,
+        selectedDriver.eta
+      );
+      setIsSubmitting(false);
+      router.push("/orders");
+    } else {
+      console.log("No driver selected");
+    }
+  };
+
   return (
     <View>
       <View className="h-5/6">
@@ -158,11 +175,25 @@ const BookMap = ({ origin, destination, type }) => {
           ))}
         </MapView>
       </View>
-      <HomeSearch origin={JSON.stringify(originFinal)} destination={JSON.stringify(destinationFinal)} />
+      <HomeSearch
+        origin={JSON.stringify(originFinal)}
+        destination={JSON.stringify(destinationFinal)}
+      />
       <View>
         {drivers.map((driver, index) => (
-          <RideList driver={driver} key={index} />
+          <RideList
+            key={index}
+            driver={driver}
+            selectedDriver={selectedDriver}
+            onSelectDriver={() => setSelectedDriver(driver)}
+            disabled={isSubmitting}
+          />
         ))}
+        {selectedDriver && (
+          <View className="px-5 mt-5 bg-white">
+            <Button title="Submit Order" color="black" onPress={handleSubmit} />
+          </View>
+        )}
       </View>
     </View>
   );

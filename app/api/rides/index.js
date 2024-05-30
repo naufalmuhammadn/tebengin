@@ -1,5 +1,5 @@
 import { db } from "../../../firebase/config";
-import { collection, query, where, getDocs, doc, getDoc, updateDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, updateDoc, addDoc } from "firebase/firestore";
 import { getUser } from "../users";
 
 export const getRides = async (id) => {
@@ -85,6 +85,19 @@ export const updateRideRating = async (id, rating, ulasan, ratingStatus) => {
         rating,
         ulasan,
         ratingStatus
+    });
+}
+
+export const createRide = async (destination, driverId, pickUp, price, userId, departureTime) => {
+    await addDoc(collection(db, "rides"), {
+        destination,
+        departureTime,
+        driverId,
+        pickUp,
+        price,
+        userId,
+        status: "ongoing",
+        date: new Date(),
     });
 }
 
