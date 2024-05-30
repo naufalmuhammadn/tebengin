@@ -6,7 +6,7 @@ import HomeSearch from "../../../components/HomeSearch.jsx";
 
 const Home = (props) => {
   return (
-    <View>
+    <View className="w-full h-screen">
       <HomeMap />
 
       <HomeSearch />

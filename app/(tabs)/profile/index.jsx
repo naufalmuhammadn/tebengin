@@ -82,8 +82,8 @@ export default function Profile() {
 
   if (loading) {
     return (
-      <View className="flex-1 justify-center items-center bg-white">
-        <ActivityIndicator size="large" color="#0000ff" />
+      <View className="items-center justify-center flex-1 bg-white">
+        <ActivityIndicator size="large" color="#5B1F15" />
       </View>
     );
   }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Image, Platform, TouchableOpacity, View } from "react-native";
+import { Platform, TouchableOpacity, View, ActivityIndicator } from "react-native";
 import MapView, {
   PROVIDER_GOOGLE,
   PROVIDER_DEFAULT,
@@ -11,6 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 const HomeMap = (props) => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [isLocationFetched, setIsLocationFetched] = useState(false);
 
   const mapRef = useRef(null);
 
@@ -24,6 +25,7 @@ const HomeMap = (props) => {
 
       let currentLocation = await Location.getCurrentPositionAsync({});
       setLocation(currentLocation);
+      setIsLocationFetched(true);
     })();
   }, []);
 
@@ -35,6 +37,14 @@ const HomeMap = (props) => {
       longitudeDelta: 0.0121,
     });
   };
+
+  if (!isLocationFetched) {
+    return (
+      <View className="flex items-center justify-center flex-1 w-full h-full border">
+        <ActivityIndicator size="large" color="#5B1F15" />
+      </View>
+    );
+  }
 
   return (
     <View>
@@ -49,8 +59,8 @@ const HomeMap = (props) => {
         showsPointsOfInterest={true}
         showsBuildings={true}
         initialRegion={{
-          latitude: location ? location.coords.latitude : -6.8962725,
-          longitude: location ? location.coords.longitude : 107.609652,
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
           latitudeDelta: 0.0222,
           longitudeDelta: 0.0121,
         }}

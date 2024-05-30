@@ -86,7 +86,7 @@ const BookMap = ({ origin, destination, type }) => {
   if ((!location && !originFinal) || loading) {
     return (
       <View className="items-center justify-center flex-1">
-        <ActivityIndicator size="large" color="blue" />
+        <ActivityIndicator size="large" color="#5B1F15" />
       </View>
     );
   }

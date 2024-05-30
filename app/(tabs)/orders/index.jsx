@@ -55,8 +55,8 @@ const Orders = () => {
 
   if (loading) {
     return (
-      <View className="flex-1 justify-center items-center bg-white">
-        <ActivityIndicator size="large" color="#0000ff" />
+      <View className="items-center justify-center flex-1 bg-white">
+        <ActivityIndicator size="large" color="#5B1F15" />
       </View>
     );
   }
@@ -74,7 +74,7 @@ const Orders = () => {
                 <Image source={bike} className="object-cover w-[60px] h-[60px]" />
                 <View>
                   <Text className="text-sm">{item.destination}</Text>
-                  <View className="flex flex-row gap-2 items-center">
+                  <View className="flex flex-row items-center gap-2">
                     <Text className="text-xs ">{item.driver}</Text>
                     <View className="w-1 h-1 bg-black rounded-full" />
                     <Text className="text-xs ">{item.plat}</Text>
@@ -96,7 +96,7 @@ const Orders = () => {
                 <Image source={bike} className="object-cover w-[60px] h-[60px]" />
                 <View>
                   <Text className="text-sm">{item.destination}</Text>
-                  <View className="flex flex-row gap-2 items-center">
+                  <View className="flex flex-row items-center gap-2">
                     <Text className="text-xs ">{item.driver}</Text>
                     <View className="w-1 h-1 bg-black rounded-full" />
                     <Text className="text-xs ">{item.plat}</Text>
@@ -118,7 +118,7 @@ const Orders = () => {
               <Image source={car} className="object-cover w-[60px] h-[60px]" />
               <View>
                 <Text className="text-sm">{item.destination}</Text>
-                <View className="flex flex-row gap-2 items-center">
+                <View className="flex flex-row items-center gap-2">
                   <Image source={cancel} className="object-cover w-[14px] h-[14px]" />
                   <Text className="text-xs">Tidak jadi nebeng</Text>
                 </View>
@@ -139,10 +139,10 @@ const Orders = () => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
-        <View className="pt-20 flex-1 items-center bg-white w-full h-full">
-          <Text className="text-lg font-semibold mb-8">Orders</Text>
+        <View className="items-center flex-1 w-full h-full pt-20 bg-white">
+          <Text className="mb-8 text-lg font-semibold">Orders</Text>
           <View className="flex flex-col w-full">
-            <View className="w-full flex flex-col justify-center">
+            <View className="flex flex-col justify-center w-full">
               <View className="flex flex-row h-10 bg-[#F6D2CC] mx-6 mb-4 border border-black rounded-md">
                 {tabs.map(tab => (
                   <TouchableOpacity
@@ -154,7 +154,7 @@ const Orders = () => {
                   </TouchableOpacity>
                 ))}
               </View>
-              <View className="w-full flex justify-between">
+              <View className="flex justify-between w-full">
                 {displayTabContent()}
               </View>
             </View>

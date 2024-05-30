@@ -80,21 +80,21 @@ export default function OrderSummary() {
 
   if (loading) {
     return (
-      <View className="flex-1 justify-center items-center bg-white">
-        <ActivityIndicator size="large" color="#0000ff" />
+      <View className="items-center justify-center flex-1 bg-white">
+        <ActivityIndicator size="large" color="#5B1F15" />
       </View>
     );
   }
 
   return (
-    <View className="flex-1 flex py-6 bg-white w-full">
+    <View className="flex flex-1 w-full py-6 bg-white">
       <View className="mb-4">
         <View className="flex-row items-center px-4">
             <Ionicons name="chevron-back"  onPress={() => navigation.goBack()}  size={24} color="black" />
-            <Text className="text-xl font-bold pl-2">Order Summary</Text>
+            <Text className="pl-2 text-xl font-bold">Order Summary</Text>
         </View>
       </View>
-      <View className="flex-row mb-2 mx-4 items-center">
+      <View className="flex-row items-center mx-4 mb-2">
         <Image source={options1} className="w-12 h-12" />
         <View className="flex-1 ml-4">
           <Text className="text-lg text-black">TebengRide</Text>
@@ -105,14 +105,14 @@ export default function OrderSummary() {
           <Text className="text-xs text-gray-500">Order {id}</Text>
         </View>
       </View>
-      <View className="flex-row border-b px-4 border-gray-400 mb-2" />
+      <View className="flex-row px-4 mb-2 border-b border-gray-400" />
 
       {rideData.status === "completed" && (
         <>
           <Text className="text-base font-bold text-center">
             Bagaimana {rideData.userName}?
           </Text>
-          <View className="flex-row mb-4 justify-center">
+          <View className="flex-row justify-center mb-4">
             {[...Array(5)].map((_, index) => (
               <TouchableOpacity
                 key={index}
@@ -128,18 +128,18 @@ export default function OrderSummary() {
             ))}
           </View>
           <TextInput
-            className="border border-gray-400 rounded-lg p-2 mb-4 mx-4 text-top"
+            className="p-2 mx-4 mb-4 border border-gray-400 rounded-lg text-top"
             placeholder="Berikan ulasan untuk driver..."
             value={ulasan}
             onChangeText={handleUlasanChange}
             numberOfLines={4}
             editable={ratingStatus !== true}
           />
-          <View className="flex-row border-b border-gray-400 mb-2" />
+          <View className="flex-row mb-2 border-b border-gray-400" />
         </>
       )}
 
-      <View className="flex-row items-center mb-4 mx-4">
+      <View className="flex-row items-center mx-4 mb-4">
         <Image source={profilePic} className="w-12 h-12 rounded-full" />
         <View className="flex-1 ml-4">
           <Text className="text-base font-bold">{rideData.driverName}</Text>
@@ -154,11 +154,11 @@ export default function OrderSummary() {
           </Text>
         </View>
       </View>
-      <View className="flex-row border-b border-gray-400 mb-2" />
+      <View className="flex-row mb-2 border-b border-gray-400" />
 
-      <View className="mb-2 mx-4">
-        <Text className="text-base font-bold mb-2 ">Detail Perjalanan</Text>
-        <View className="flex-row justify-between items-center mb-2">
+      <View className="mx-4 mb-2">
+        <Text className="mb-2 text-base font-bold ">Detail Perjalanan</Text>
+        <View className="flex-row items-center justify-between mb-2">
           <View className="flex-row items-center flex-1">
             <Image source={originPoint} className="w-8 h-10" />
             <View className="ml-2">
@@ -166,7 +166,7 @@ export default function OrderSummary() {
               <Text className="text-sm">{rideData.pickUp}</Text>
             </View>
           </View>
-          <View className="flex-row items-center ml-2 flex-1">
+          <View className="flex-row items-center flex-1 ml-2">
             <Image source={destinationPoint} className="w-8 h-10" />
             <View className="ml-2">
               <Text className="text-sm font-semibold">Lokasi Antar</Text>
@@ -176,22 +176,22 @@ export default function OrderSummary() {
         </View>
       </View>
 
-      <View className="flex-row border-b border-gray-400 mb-2 px-4" />
+      <View className="flex-row px-4 mb-2 border-b border-gray-400" />
 
       {rideData.status !== "cancelled" && (
-        <View className="mb-4 mx-4">
-            <Text className="text-base font-bold mb-2">Detail Pembayaran</Text>
-            <Text className="text-sm text-gray-600 mb-1">
+        <View className="mx-4 mb-4">
+            <Text className="mb-2 text-base font-bold">Detail Pembayaran</Text>
+            <Text className="mb-1 text-sm text-gray-600">
                 Biaya Perjalanan: {rideData.price}
             </Text>
-            <Text className="text-sm text-gray-600 mb-1">
+            <Text className="mb-1 text-sm text-gray-600">
                 Biaya Admin: Rp 2.000
             </Text>
-            <Text className="text-sm text-gray-600 mb-1">
+            <Text className="mb-1 text-sm text-gray-600">
                 Voucher Diskon: -Rp 3.000
             </Text>
-            <Text className="text-sm text-gray-600 mb-1">Total: Rp 7.000</Text>
-            <Text className="text-sm text-gray-600 mb-1">Cash: Rp 7.000</Text>
+            <Text className="mb-1 text-sm text-gray-600">Total: Rp 7.000</Text>
+            <Text className="mb-1 text-sm text-gray-600">Cash: Rp 7.000</Text>
         </View>
       )}
 
