@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 import { useState, useEffect } from "react";
 import profile from "../../../assets/images/profile.png";
