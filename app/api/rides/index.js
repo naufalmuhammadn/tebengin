@@ -1,29 +1,34 @@
 import { db } from "../../../firebase/config";
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, updateDoc } from "firebase/firestore";
+import { getUser } from "../users";
 
-export const getRides = async () => {
+export const getRides = async (id) => {
     const ongoing = [];
     const completed = [];
     const cancelled = [];
 
-    const querySnapshot = await getDocs(collection(db, "rides"));
+    const q = query(collection(db, "rides"), where("userId", "==", id))
+    const querySnapshot = await getDocs(q);
+
     for (const ride of querySnapshot.docs) {
         const rideData = ride.data();
 
-        const driverDoc = await doc(db, "drivers", rideData.driverId);
-        const userDoc = await doc(db, "users", rideData.userId);
-        const driverData = await getDoc(driverDoc);
-        const userData = await getDoc(userDoc);
+        const driverRef = await doc(db, "drivers", rideData.driverId);
+        const driverSnap = await getDoc(driverRef);
+        const driverData = driverSnap.data();
+
+        const userData = await getUser(id);
 
         const formattedRide = {
             id: ride.id,
+            pickUp: rideData.pickUp,
             destination: rideData.destination,
             departureTime: rideData.departureTime,
-            price: rideData.price,
+            price: formatPrice(rideData.price),
             status: rideData.status,
-            user: userData.data().name,
-            driver: driverData.data().name,
-            plat: driverData.data().plat,
+            user: userData.name,
+            driver: driverData.name,
+            plat: driverData.plat,
         };
 
         switch (formattedRide.status) {
@@ -42,4 +47,56 @@ export const getRides = async () => {
     }
 
     return { ongoing, completed, cancelled };
+};
+
+export const getRide = async (id) => {
+    const rideRef = doc(db, "rides", id);
+    const rideSnap = await getDoc(rideRef);
+
+    const rideData = rideSnap.data();
+
+    const driverRef = await doc(db, "drivers", rideData.driverId);
+    const driverSnap = await getDoc(driverRef);
+    const driverData = driverSnap.data();
+    const userData = await getUser(rideData.userId);
+
+    const formattedRide = {
+        id: id,
+        destination: rideData.destination,
+        pickUp: rideData.pickUp,
+        departureTime: rideData.departureTime,
+        price: formatPrice(rideData.price),
+        status: rideData.status,
+        user: userData.displayName,
+        driver: driverData.name,
+        plat: driverData.plat,
+        date: formatDate(rideData.date),
+        rating: rideData.rating,
+        ulasan: rideData.ulasan,
+        ratingStatus: rideData.ratingStatus
+    };
+
+    return formattedRide;
+}
+
+export const updateRideRating = async (id, rating, ulasan, ratingStatus) => {
+    const rideRef = doc(db, "rides", id);
+    await updateDoc(rideRef, {
+        rating,
+        ulasan,
+        ratingStatus
+    });
+}
+
+const formatDate = (timestamp) => {
+    const date = new Date(timestamp.seconds * 1000);
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+    });
+};
+
+const formatPrice = (price) => {
+    return `Rp ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
 };
