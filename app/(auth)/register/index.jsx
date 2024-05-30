@@ -102,7 +102,7 @@ export default function Register() {
         secureTextEntry
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
-      <View className="flex flex-row items-center w-full px-4 py-3 space-x-2 border border-gray-200 rounded-md">
+      <View className="relative flex flex-row items-center w-full px-4 py-1.5 space-x-2 border border-gray-200 rounded-md">
         <CountryPicker
           withCallingCode
           withFilter
@@ -111,13 +111,15 @@ export default function Register() {
           countryCode={countryCode}
           onSelect={onSelectCountry}
         />
-        <TextInput
-          placeholder="Phone Number"
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-          keyboardType="phone-pad"
-          className="w-full font-poppins"
-        />
+        <View className="pt-1.5 w-3/4">
+          <TextInput
+            placeholder="Phone Number"
+            value={phoneNumber}
+            onChangeText={setPhoneNumber}
+            keyboardType="phone-pad"
+            className="w-full font-poppins"
+          />
+        </View>
       </View>
       <DropDownPicker
         open={open}
