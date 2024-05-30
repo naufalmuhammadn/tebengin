@@ -1,14 +1,14 @@
 export default [
     {
         id: '0',
-        type: 'bike',
-        latitude: -6.2382699,
-        longitude: 106.9755726,
+        type: 'Bike',
+        latitude: -6.9010175,
+        longitude: 107.6093516,
     },
     {
         id: '1',
-        type: 'car',
-        latitude: -6.2382699,
-        longitude: 106.9755726,
+        type: 'Car',
+        latitude: -6.891370,
+        longitude: 107.617060,
     },
 ];

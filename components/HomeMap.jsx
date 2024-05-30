@@ -8,16 +8,7 @@ import MapView, {
 import * as Location from "expo-location";
 import { Ionicons } from "@expo/vector-icons";
 
-import cars from "../assets/data/cars";
-
 const HomeMap = (props) => {
-  const getImage = (type) => {
-    if (type === "bike") {
-      return require("../assets/images/bike.png");
-    }
-    return require("../assets/images/car.png");
-  };
-
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
@@ -37,8 +28,6 @@ const HomeMap = (props) => {
   }, []);
 
   const centerMapOnUser = async () => {
-    // let currentLocation = await Location.getCurrentPositionAsync({});
-    // setLocation(currentLocation);
     mapRef.current.animateToRegion({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
@@ -66,17 +55,6 @@ const HomeMap = (props) => {
           longitudeDelta: 0.0121,
         }}
       >
-        {cars.map((car) => (
-          <Marker
-            key={car.id}
-            coordinate={{ latitude: car.latitude, longitude: car.longitude }}
-          >
-            <Image
-              style={{ width: 70, height: 70, resizeMode: "contain" }}
-              source={getImage(car.type)}
-            />
-          </Marker>
-        ))}
       </MapView>
       <TouchableOpacity
         className="absolute items-center justify-center w-10 h-10 bg-blue-500 bottom-5 right-5 rounded-xl"
