@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 import { useState, useEffect } from "react";
 import profile from "../../../assets/images/profile.png";
@@ -79,6 +80,14 @@ export default function Profile() {
       });
   };
 
+  if (loading) {
+    return (
+      <View className="flex-1 justify-center items-center bg-white">
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
+  
   return (
     <View className="justify-center flex-1 gap-4 px-6 bg-white font-poppins">
       <View className="items-center justify-center gap-4 ">
