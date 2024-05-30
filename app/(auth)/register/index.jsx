@@ -93,12 +93,16 @@ export default function Register() {
         autoComplete="email"
         value={email}
         onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
       <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
+        keyboardType="visible-password"
+        autoCapitalize="none"
         secureTextEntry
         className="w-full px-4 py-3 text-black border border-gray-200 rounded-md font-poppins focus:caret-black focus:text-black focus:border-black"
       />
