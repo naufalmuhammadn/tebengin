@@ -58,7 +58,7 @@ export default function OrderSummary() {
       }
     };
     fetchRideData();
-  }, []);
+  }, [ratingStatus]);
 
   const handleRating = (index) => {
     setRating(index + 1);
@@ -88,7 +88,7 @@ export default function OrderSummary() {
 
   return (
     <View className="flex-1 flex py-6 bg-white w-full">
-      <View className="mb-8">
+      <View className="mb-4">
         <View className="flex-row items-center px-4">
             <Ionicons name="chevron-back"  onPress={() => navigation.goBack()}  size={24} color="black" />
             <Text className="text-xl font-bold pl-2">Order Summary</Text>
@@ -198,7 +198,7 @@ export default function OrderSummary() {
       {rideData.status === "completed" && (
         <TouchableOpacity 
           onPress={handleUpdateRating} 
-          className={`px-3 rounded-lg items-center ${ratingStatus === true ? "bg-white" : "bg-red-900"}`}
+          className={`mx-4 py-3 rounded-lg items-center ${ratingStatus === true ? "bg-white" : "bg-red-900"}`}
           disabled={ratingStatus === true}
         >
           <Text className={`${ratingStatus === true ? "text-black" : "text-white"} text-lg font-bold`}>

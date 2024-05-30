@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from "expo-status-bar";
-import { Image, Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
+import { Image, Text, View, TouchableOpacity, ActivityIndicator, SafeAreaView, ScrollView, RefreshControl, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import cancel from "../../../assets/images/cancel.png";
@@ -22,6 +22,21 @@ const Orders = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigation = useNavigation();
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    try {
+      const data = await getRides(auth.currentUser.uid);
+      setRidesData(data);
+    } catch (error) {
+      console.error("Error fetching rides data:", error);
+      setError("Failed to fetch rides data.");
+    } finally {
+      setRefreshing(false);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -116,32 +131,41 @@ const Orders = () => {
     }
   };
 
-  const Orders = () => {
-    return (
-      <View className="pt-20 flex-1 items-center bg-white w-full h-full">
-      <Text className="text-lg font-semibold mb-8">Orders</Text>
-      <View className="flex flex-col w-full">
-        <View className="w-full flex flex-col justify-center">
-          <View className="flex flex-row h-10 bg-[#F6D2CC] mx-6 mb-4 border border-black rounded-md">
-            {tabs.map(tab => (
-              <TouchableOpacity
-                key={tab}
-                className={`flex-1 h-full rounded-md items-center justify-center ${activeTab === tab ? 'bg-primary' : 'bg-[#F6D2CC]'}`}
-                onPress={() => setActiveTab(tab)}
-              >
-                <Text className={`text-xs ${activeTab === tab ? 'text-white' : 'text-black'}`}>{tab}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-          <View className="w-full flex justify-between">
-            {displayTabContent()}
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.scrollView}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <View className="pt-20 flex-1 items-center bg-white w-full h-full">
+          <Text className="text-lg font-semibold mb-8">Orders</Text>
+          <View className="flex flex-col w-full">
+            <View className="w-full flex flex-col justify-center">
+              <View className="flex flex-row h-10 bg-[#F6D2CC] mx-6 mb-4 border border-black rounded-md">
+                {tabs.map(tab => (
+                  <TouchableOpacity
+                    key={tab}
+                    className={`flex-1 h-full rounded-md items-center justify-center ${activeTab === tab ? 'bg-primary' : 'bg-[#F6D2CC]'}`}
+                    onPress={() => setActiveTab(tab)}
+                  >
+                    <Text className={`text-xs ${activeTab === tab ? 'text-white' : 'text-black'}`}>{tab}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+              <View className="w-full flex justify-between">
+                {displayTabContent()}
+              </View>
+            </View>
           </View>
         </View>
-      </View>
-    </View>
-    )
-  }
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
+const OrdersStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Orders" component={Orders} />
@@ -150,4 +174,14 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flexGrow: 1,
+    backgroundColor: 'white',
+  },
+});
+
+export default OrdersStack;
