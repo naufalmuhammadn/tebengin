@@ -3,6 +3,8 @@ import { Image, Text, TextInput, View, TouchableOpacity, ActivityIndicator } fro
 import { Ionicons } from "@expo/vector-icons";
 import { Link, useLocalSearchParams, useNavigation } from "expo-router";
 import options1 from "../assets/images/tebengride.png";
+import originPoint from "../assets/images/originPoint.png";
+import destinationPoint from "../assets/images/destinationPoint.png";
 import profilePic from "../assets/images/profile.png";
 import { getRide, updateRideRating } from "../app/api/rides";
 
@@ -92,7 +94,7 @@ export default function OrderSummary() {
             <Text className="text-xl font-bold pl-2">Order Summary</Text>
         </View>
       </View>
-      <View className="flex-row mb-2 px-4 items-center">
+      <View className="flex-row mb-2 mx-4 items-center">
         <Image source={options1} className="w-12 h-12" />
         <View className="flex-1 ml-4">
           <Text className="text-lg text-black">TebengRide</Text>
@@ -126,7 +128,7 @@ export default function OrderSummary() {
             ))}
           </View>
           <TextInput
-            className="border border-gray-400 rounded-lg p-2 mb-4 text-top"
+            className="border border-gray-400 rounded-lg p-2 mb-4 mx-4 text-top"
             placeholder="Berikan ulasan untuk driver..."
             value={ulasan}
             onChangeText={handleUlasanChange}
@@ -137,7 +139,7 @@ export default function OrderSummary() {
         </>
       )}
 
-      <View className="flex-row items-center mb-4 px-4">
+      <View className="flex-row items-center mb-4 mx-4">
         <Image source={profilePic} className="w-12 h-12 rounded-full" />
         <View className="flex-1 ml-4">
           <Text className="text-base font-bold">{rideData.driverName}</Text>
@@ -154,18 +156,18 @@ export default function OrderSummary() {
       </View>
       <View className="flex-row border-b border-gray-400 mb-2" />
 
-      <View className="mb-2 px-4">
-        <Text className="text-base font-bold mb-2">Detail Perjalanan</Text>
+      <View className="mb-2 mx-4">
+        <Text className="text-base font-bold mb-2 ">Detail Perjalanan</Text>
         <View className="flex-row justify-between items-center mb-2">
           <View className="flex-row items-center flex-1">
-            <Ionicons name="location" size={16} />
+            <Image source={originPoint} className="w-8 h-10" />
             <View className="ml-2">
               <Text className="text-sm font-semibold">Lokasi Jemput</Text>
               <Text className="text-sm">{rideData.pickUp}</Text>
             </View>
           </View>
           <View className="flex-row items-center ml-2 flex-1">
-            <Ionicons name="location" size={16} />
+            <Image source={destinationPoint} className="w-8 h-10" />
             <View className="ml-2">
               <Text className="text-sm font-semibold">Lokasi Antar</Text>
               <Text className="text-sm">{rideData.destination}</Text>
@@ -177,7 +179,7 @@ export default function OrderSummary() {
       <View className="flex-row border-b border-gray-400 mb-2 px-4" />
 
       {rideData.status !== "cancelled" && (
-        <View className="mb-4">
+        <View className="mb-4 mx-4">
             <Text className="text-base font-bold mb-2">Detail Pembayaran</Text>
             <Text className="text-sm text-gray-600 mb-1">
                 Biaya Perjalanan: {rideData.price}
@@ -196,7 +198,7 @@ export default function OrderSummary() {
       {rideData.status === "completed" && (
         <TouchableOpacity 
           onPress={handleUpdateRating} 
-          className={`p-3 rounded-lg items-center ${ratingStatus === true ? "bg-white" : "bg-red-900"}`}
+          className={`px-3 rounded-lg items-center ${ratingStatus === true ? "bg-white" : "bg-red-900"}`}
           disabled={ratingStatus === true}
         >
           <Text className={`${ratingStatus === true ? "text-black" : "text-white"} text-lg font-bold`}>
