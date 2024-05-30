@@ -11,6 +11,7 @@ export default function App() {
       <Link href="/profile">Profile</Link>
       <Link href="/destination">destination</Link>
       <Link href="/search">search</Link>
+      <Link href="/booking">booking</Link>
       <StatusBar style="auto" />
     </View>
   );

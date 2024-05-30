@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MapView, {
   PROVIDER_GOOGLE,
   PROVIDER_DEFAULT,
@@ -8,14 +8,24 @@ import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
 import originPoint from "../assets/images/originPoint.png";
 import destinationPoint from "../assets/images/destinationPoint.png";
-import { Platform, View, TouchableOpacity } from "react-native";
+import { Platform, View, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import cars from "../assets/data/cars";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w";
 
 const RouteMap = ({ origin, destination }) => {
   const originFinal = origin ? JSON.parse(origin) : null;
   const destinationFinal = destination ? JSON.parse(destination) : null;
+
+  const mapRef = useRef(null);
+
+  const getImage = (type) => {
+    if (type === "Bike") {
+      return require("../assets/images/tebengride.png");
+    }
+    return require("../assets/images/tebengcar.png");
+  };
 
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -38,8 +48,6 @@ const RouteMap = ({ origin, destination }) => {
   }
 
   const centerMapOnUser = async () => {
-    // let currentLocation = await Location.getCurrentPositionAsync({});
-    // setLocation(currentLocation);
     mapRef.current.animateToRegion({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
@@ -68,6 +76,7 @@ const RouteMap = ({ origin, destination }) => {
   return (
     <View>
       <MapView
+        ref={mapRef}
         style={{ width: "100%", height: "100%" }}
         provider={
           Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
@@ -91,18 +100,18 @@ const RouteMap = ({ origin, destination }) => {
           />
         )}
         {originFinal && (
-          <Marker coordinate={originLoc} title={"Origin"} icon={originPoint}>
-            {/* <Image source={originPoint} className="w-5 h-5" /> */}
-          </Marker>
+          <Marker
+            coordinate={originLoc}
+            title={"Origin"}
+            icon={originPoint}
+          ></Marker>
         )}
         {destinationLoc && (
           <Marker
             coordinate={destinationLoc}
             title={"Destination"}
             icon={destinationPoint}
-          >
-            {/* <Image source={destinationPoint} className="w-5 h-5" /> */}
-          </Marker>
+          ></Marker>
         )}
       </MapView>
       <TouchableOpacity

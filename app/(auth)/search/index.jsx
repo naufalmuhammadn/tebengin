@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { View, Dimensions, Alert } from "react-native";
-// import { API, graphqlOperation, Auth } from 'aws-amplify';
 import RouteMap from "../../../components/RouteMap";
 import RideTypes from "../../../components/RideTypes";
-// import { createOrder } from '../../graphql/mutations';
 
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { useLocalSearchParams } from "expo-router";
 import HomeSearch from "../../../components/HomeSearch";
 
@@ -24,33 +22,7 @@ const SearchResults = (props) => {
       return;
     }
 
-    // submit to server
     try {
-      // const userInfo = await Auth.currentAuthenticatedUser();
-
-      // const date = new Date();
-      // const input = {
-      //   createdAt: date.toISOString(),
-      //   type,
-      //   originLatitude: originPlace.details.geometry.location.lat,
-      //   oreiginLongitude: originPlace.details.geometry.location.lng,
-
-      //   destLatitude: destinationPlace.details.geometry.location.lat,
-      //   destLongitude: destinationPlace.details.geometry.location.lng,
-
-      //   userId: userInfo.attributes.sub,
-      //   carId: "1",
-      // }
-
-      // const response = await API.graphql(
-      //   graphqlOperation(
-      //     createOrder, {
-      //       input: input
-      //     },
-      //   )
-      // )
-
-      console.log(response);
       Alert.alert("Hurraaay", "Your order has been submited", [
         {
           text: "Go home",
