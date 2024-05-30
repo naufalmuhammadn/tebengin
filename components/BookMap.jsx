@@ -45,10 +45,8 @@ const BookMap = ({ origin, destination, type }) => {
 
         let currentLocation = await Location.getCurrentPositionAsync({});
         setLocation(currentLocation);
-
-        console.log(type)
-
-        const driversData = await getDriversByType("car");
+        
+        const driversData = await getDriversByType(type);
 
         if (currentLocation && driversData.length > 0) {
           const originLocation = `${currentLocation.coords.latitude},${currentLocation.coords.longitude}`;
@@ -84,13 +82,30 @@ const BookMap = ({ origin, destination, type }) => {
   }, []);
 
   if (!location && !originFinal) {
-    return null;
+    return (
+      <View className="items-center justify-center flex-1">
+        <ActivityIndicator size="large" color="blue" />
+      </View>
+    );
   }
 
   if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#0000ff" />
+      <View className="items-center justify-center flex-1">
+        <MapView
+          style={{ width: "100%", height: "100%" }}
+          provider={
+            Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
+          }
+          showsUserLocation={true}
+          showsMyLocationButton={false}
+          initialRegion={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.0222,
+            longitudeDelta: 0.0121,
+          }}
+        />
       </View>
     );
   }
