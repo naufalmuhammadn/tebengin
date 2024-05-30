@@ -6,7 +6,7 @@ import { router } from "expo-router";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const RideTypeRow = (props) => {
-  const { type } = props;
+  const { origin, destination, type } = props;
 
   const getImage = () => {
     if (type.type === "Bike") {
@@ -20,6 +20,8 @@ const RideTypeRow = (props) => {
       pathname: "/booking",
       params: {
         type: type.type === "Bike" ? "bike" : "car",
+        originPlace: JSON.stringify(origin),
+        destinationPlace: JSON.stringify(destination),
       },
     });
   };

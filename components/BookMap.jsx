@@ -8,7 +8,13 @@ import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
 import originPoint from "../assets/images/originPoint.png";
 import destinationPoint from "../assets/images/destinationPoint.png";
-import { Platform, View, TouchableOpacity, Text, ActivityIndicator } from "react-native";
+import {
+  Platform,
+  View,
+  TouchableOpacity,
+  Text,
+  ActivityIndicator,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import types from "../assets/data/types";
 import RideList from "./RideList";
@@ -19,11 +25,9 @@ import HomeSearch from "./HomeSearch";
 const GOOGLE_MAPS_APIKEY = "AIzaSyBmW2jQNUVsWY6etVO-UTwh4kBUxMi-e2w";
 
 const BookMap = ({ origin, destination, type }) => {
-  const originFinal = origin ? JSON.parse(origin) : null;
-  const destinationFinal = destination ? JSON.parse(destination) : null;
-
-  const mapRef = useRef(null);
-
+  const originFinal = origin ? JSON.parse(JSON.parse(origin)) : null;
+  const destinationFinal = destination ? JSON.parse(JSON.parse(destination)) : null;
+  
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [drivers, setDrivers] = useState(null);
@@ -45,18 +49,17 @@ const BookMap = ({ origin, destination, type }) => {
 
         let currentLocation = await Location.getCurrentPositionAsync({});
         setLocation(currentLocation);
-        
-        const driversData = await getDriversByType(type);
 
+        const driversData = await getDriversByType(type);
+        
         if (currentLocation && driversData.length > 0) {
-          const originLocation = `${currentLocation.coords.latitude},${currentLocation.coords.longitude}`;
+          const originLocation = `${originFinal.details.geometry.location.lat},${originFinal.details.geometry.location.lng}`;
           const originDrivers = driversData
             .map(
               (driver) =>
                 `${driver.location.latitude},${driver.location.longitude}`
             )
             .join("|");
-
           const response = await axios.get(
             `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${originDrivers}&destinations=${originLocation}&key=${GOOGLE_MAPS_APIKEY}`
           );
@@ -81,7 +84,7 @@ const BookMap = ({ origin, destination, type }) => {
     fetchLocationAndDrivers();
   }, []);
 
-  if (!location && !originFinal) {
+  if ((!location && !originFinal) || loading) {
     return (
       <View className="items-center justify-center flex-1">
         <ActivityIndicator size="large" color="blue" />
@@ -89,45 +92,12 @@ const BookMap = ({ origin, destination, type }) => {
     );
   }
 
-  if (loading) {
-    return (
-      <View className="items-center justify-center flex-1">
-        <MapView
-          style={{ width: "100%", height: "100%" }}
-          provider={
-            Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
-          }
-          showsUserLocation={true}
-          showsMyLocationButton={false}
-          initialRegion={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-            latitudeDelta: 0.0222,
-            longitudeDelta: 0.0121,
-          }}
-        />
-      </View>
-    );
-  }
-
-  const centerMapOnUser = async () => {
-    mapRef.current.animateToRegion({
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude,
-      latitudeDelta: 0.0222,
-      longitudeDelta: 0.0121,
-    });
-  };
-
   const originLoc = originFinal
     ? {
         latitude: originFinal.details.geometry.location.lat,
         longitude: originFinal.details.geometry.location.lng,
       }
-    : {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      };
+    : null;
 
   const destinationLoc = destinationFinal
     ? {
@@ -140,7 +110,6 @@ const BookMap = ({ origin, destination, type }) => {
     <View>
       <View className="h-5/6">
         <MapView
-          ref={mapRef}
           style={{ width: "100%", height: "100%" }}
           provider={
             Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
@@ -188,14 +157,8 @@ const BookMap = ({ origin, destination, type }) => {
             />
           ))}
         </MapView>
-        <TouchableOpacity
-          className="absolute items-center justify-center w-10 h-10 bg-blue-500 bottom-5 right-5 rounded-xl"
-          onPress={centerMapOnUser}
-        >
-          <Ionicons name="locate" size={28} color="white" />
-        </TouchableOpacity>
       </View>
-      <HomeSearch origin={origin} destination={destination}/>
+      <HomeSearch origin={JSON.stringify(originFinal)} destination={JSON.stringify(destinationFinal)} />
       <View>
         {drivers.map((driver, index) => (
           <RideList driver={driver} key={index} />

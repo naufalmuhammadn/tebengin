@@ -1,99 +1,69 @@
 {
     "data": {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-            "location": {
-                "lat": -6.894637099999999,
-                "lng": 107.6149016
-            },
-            "viewport": {
-                "northeast": {
-                    "lat": -6.893390769708497,
-                    "lng": 107.6162461302915
-                },
-                "southwest": {
-                    "lat": -6.896088730291502,
-                    "lng": 107.6135481697085
-                }
-            }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "icon_background_color": "#FF9E67",
-        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-        "name": "Ayam penyet Khylla Khas Jowo",
-        "opening_hours": {
-            "open_now": true
-        },
-        "photos": [
+        "description": "Bandung, Bandung City, West Java, Indonesia",
+        "matched_substrings": [
             {
-                "height": 2806,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
-                ],
-                "photo_reference": "AUGGfZk07deZGtkZJpfttbPn0T9HU6RQ9-RP3ZoMBnutNL3_cp6wOu8YmPwwUecQakksXIc5TH7novBls5uPtlYvZtDcQ2zlueDqqubjvUcfs-CLrTicggdOJ-kM5pAdOE-8Sj-qzp2R64h02AVXh8xm3MSkxTirYulEWzjDHGZ-8b-QijwY",
-                "width": 1980
+                "length": 7,
+                "offset": 0
             }
         ],
-        "place_id": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
-        "plus_code": {
-            "compound_code": "4J47+4X Lebak Gede, Bandung City, West Java, Indonesia",
-            "global_code": "6P594J47+4X"
+        "place_id": "ChIJf0dSgjnmaC4RshXo05MfahQ",
+        "reference": "ChIJf0dSgjnmaC4RshXo05MfahQ",
+        "structured_formatting": {
+            "main_text": "Bandung",
+            "main_text_matched_substrings": [
+                {
+                    "length": 7,
+                    "offset": 0
+                }
+            ],
+            "secondary_text": "Bandung City, West Java, Indonesia"
         },
-        "rating": 5,
-        "reference": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
-        "scope": "GOOGLE",
-        "types": [
-            "restaurant",
-            "point_of_interest",
-            "food",
-            "establishment"
+        "terms": [
+            {
+                "offset": 0,
+                "value": "Bandung"
+            },
+            {
+                "offset": 9,
+                "value": "Bandung City"
+            },
+            {
+                "offset": 23,
+                "value": "West Java"
+            },
+            {
+                "offset": 34,
+                "value": "Indonesia"
+            }
         ],
-        "user_ratings_total": 4,
-        "vicinity": "Jalan Hasanudin No.3, Lebakgede"
+        "types": [
+            "locality",
+            "political",
+            "geocode"
+        ]
     },
     "details": {
         "address_components": [
             {
-                "long_name": "No.3",
-                "short_name": "No.3",
+                "long_name": "Bandung",
+                "short_name": "Bandung",
                 "types": [
-                    "street_number"
-                ]
-            },
-            {
-                "long_name": "Jalan Hasanudin",
-                "short_name": "Jl. Hasanudin",
-                "types": [
-                    "route"
-                ]
-            },
-            {
-                "long_name": "Lebakgede",
-                "short_name": "Lebakgede",
-                "types": [
-                    "administrative_area_level_4",
+                    "locality",
                     "political"
                 ]
             },
             {
-                "long_name": "Kecamatan Coblong",
-                "short_name": "Kecamatan Coblong",
-                "types": [
-                    "administrative_area_level_3",
-                    "political"
-                ]
-            },
-            {
-                "long_name": "Kota Bandung",
-                "short_name": "Kota Bandung",
+                "long_name": "Bandung City",
+                "short_name": "Bandung City",
                 "types": [
                     "administrative_area_level_2",
                     "political"
                 ]
             },
             {
-                "long_name": "Jawa Barat",
-                "short_name": "Jawa Barat",
+                "long_name": "West Java",
+                "short_name": "West Java",
                 "types": [
                     "administrative_area_level_1",
                     "political"
@@ -106,315 +76,121 @@
                     "country",
                     "political"
                 ]
-            },
-            {
-                "long_name": "40132",
-                "short_name": "40132",
-                "types": [
-                    "postal_code"
-                ]
             }
         ],
-        "adr_address": "<span class=\"street-address\">Jl. Hasanudin No.3</span>, <span class=\"extended-address\">Lebakgede, Kecamatan Coblong</span>, <span class=\"locality\">Kota Bandung</span>, <span class=\"region\">Jawa Barat</span> <span class=\"postal-code\">40132</span>, <span class=\"country-name\">Indonesia</span>",
-        "business_status": "OPERATIONAL",
-        "current_opening_hours": {
-            "open_now": true,
-            "periods": [
-                {
-                    "close": {
-                        "date": "2024-06-02",
-                        "day": 0,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-06-02",
-                        "day": 0,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "date": "2024-06-03",
-                        "day": 1,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-06-03",
-                        "day": 1,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "date": "2024-06-04",
-                        "day": 2,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-06-04",
-                        "day": 2,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "date": "2024-05-29",
-                        "day": 3,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-05-29",
-                        "day": 3,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "date": "2024-05-30",
-                        "day": 4,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-05-30",
-                        "day": 4,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "date": "2024-05-31",
-                        "day": 5,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-05-31",
-                        "day": 5,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "date": "2024-06-01",
-                        "day": 6,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "date": "2024-06-01",
-                        "day": 6,
-                        "time": "1100"
-                    }
-                }
-            ],
-            "weekday_text": [
-                "Monday: 11:00 AM – 11:00 PM",
-                "Tuesday: 11:00 AM – 11:00 PM",
-                "Wednesday: 11:00 AM – 11:00 PM",
-                "Thursday: 11:00 AM – 11:00 PM",
-                "Friday: 11:00 AM – 11:00 PM",
-                "Saturday: 11:00 AM – 11:00 PM",
-                "Sunday: 11:00 AM – 11:00 PM"
-            ]
-        },
-        "delivery": true,
-        "dine_in": true,
-        "formatted_address": "Jl. Hasanudin No.3, Lebakgede, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132, Indonesia",
-        "formatted_phone_number": "0895-3552-32530",
+        "adr_address": "Bandung, <span class=\"locality\">Bandung City</span>, <span class=\"region\">West Java</span>, <span class=\"country-name\">Indonesia</span>",
+        "formatted_address": "Bandung, Bandung City, West Java, Indonesia",
         "geometry": {
             "location": {
-                "lat": -6.894637099999999,
-                "lng": 107.6149016
+                "lat": -6.9174639,
+                "lng": 107.6191228
             },
             "viewport": {
                 "northeast": {
-                    "lat": -6.893390769708497,
-                    "lng": 107.6162461302915
+                    "lat": -6.839278013432397,
+                    "lng": 107.7387140844807
                 },
                 "southwest": {
-                    "lat": -6.896088730291502,
-                    "lng": 107.6135481697085
+                    "lat": -6.967620933108076,
+                    "lng": 107.5476009537427
                 }
             }
         },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "icon_background_color": "#FF9E67",
-        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-        "international_phone_number": "+62 895-3552-32530",
-        "name": "Ayam penyet Khylla Khas Jowo",
-        "opening_hours": {
-            "open_now": true,
-            "periods": [
-                {
-                    "close": {
-                        "day": 0,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 0,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "day": 1,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 1,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "day": 2,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 2,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "day": 3,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 3,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "day": 4,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 4,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "day": 5,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 5,
-                        "time": "1100"
-                    }
-                },
-                {
-                    "close": {
-                        "day": 6,
-                        "time": "2300"
-                    },
-                    "open": {
-                        "day": 6,
-                        "time": "1100"
-                    }
-                }
-            ],
-            "weekday_text": [
-                "Monday: 11:00 AM – 11:00 PM",
-                "Tuesday: 11:00 AM – 11:00 PM",
-                "Wednesday: 11:00 AM – 11:00 PM",
-                "Thursday: 11:00 AM – 11:00 PM",
-                "Friday: 11:00 AM – 11:00 PM",
-                "Saturday: 11:00 AM – 11:00 PM",
-                "Sunday: 11:00 AM – 11:00 PM"
-            ]
-        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png",
+        "icon_background_color": "#7B9EB0",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+        "name": "Bandung",
         "photos": [
             {
-                "height": 2806,
+                "height": 675,
                 "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                    "<a href=\"https://maps.google.com/maps/contrib/102776370490485010826\">Naufal</a>"
                 ],
-                "photo_reference": "AUGGfZk919qOP0CR_-bpYeivau9gulJSj9WvUMRuM7JnxSFf0u_00SJWqbO8L-psR24z4Of7u76XeYA1adRoHTA-y0TUk2P3gEujevN9i7-HhWshFnh3J9BoJOFzRXI7Me4U9BE66wVMDYtLHE0B04Xf7hE_LaffqSenhZ3_vb9B569FrbxR",
-                "width": 1980
+                "photo_reference": "AUGGfZkR64OQWMibm1rATwNf_orkC8SfhB2KXWKyZO4K679ohVRQrHzCBI3OJUiGStl--xwFVInMt1cX7yvwWkK7jKIYyd3nGy02ohtyT8Gp-G3PCdx2qRWhrgeEQZJ0_o60dqJLBBVwNJvVrRo-YRUPI3uR8gZF9ZL8DGXnEwFLpiGKenu4",
+                "width": 1200
             },
             {
-                "height": 1920,
+                "height": 890,
                 "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                    "<a href=\"https://maps.google.com/maps/contrib/117585798854402597720\">Hanafi Ingah Jauhari</a>"
                 ],
-                "photo_reference": "AUGGfZkgrk2iM1xgMoKD_jQsadTkleDyFtApfEbvSUF46O1_x8Tki6hW_29FG5b7IyyzGfS-3xkDBk8EjaAAojDiP-C9y-gtTVRVqi7seDpyzfJRD0xLJIVAnkv7qzZXW7LZMVBo8kIneUgndHnLND0Hl58T-AZIc20JLGBD0M8VafWNgi_8",
-                "width": 1080
+                "photo_reference": "AUGGfZn-U0Izwf4U-NVIq23U8gLWBJw1VodgonOXFHC5sf8NPF_VumYSDZ6HAuHL7hMIilbgfFH1221eY8LsTvNlI7QfgMv9h-PKYhT3jxy_RO4uPJlv5dom0ZXVWVL7tDh4F5vb45sMWySn-DmWOE5QhcZx6PTT-KlXdq5P6FGa31zLFa-G",
+                "width": 712
             },
             {
-                "height": 1920,
+                "height": 890,
                 "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/101225978303835421435\">Adi Firmansyah</a>"
+                    "<a href=\"https://maps.google.com/maps/contrib/117585798854402597720\">Hanafi Ingah Jauhari</a>"
                 ],
-                "photo_reference": "AUGGfZmT7LOx04SUE2hXDbj0hWk5bzcyAieCit_jYByi4UzgvTty-UyLYdxMJ2Wt_TZAuhbUIAU0TxPpsde2oJHMuuRYTmJSu9VgVwiyBOvXxka79pp3eIWUQ_vLKdQ8RbGQfjuCYBQkMDV8sxzkFZ7dVJL5UFXY9yt5SMFwJUhYdKXnCDJj",
-                "width": 1080
+                "photo_reference": "AUGGfZlvOsa6IXF8mAIaLkkqaxjPLC6tNhrZ_azf-dxqz-7UbcY96MpFHoT17E491mwFt8hlN0Ef7XDrOQ_rU4aoW1_kFhsx8yXvbLkJLzRpfvo7V3BD49Smyf4OpjB9yZ6WL3wYpqsfzc5hHuVSQGwXRoaKKCvA0-Cd9zKTyN5vZ3agk-ZJ",
+                "width": 712
+            },
+            {
+                "height": 780,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/111564416863566876411\">Bambang Soepriadi</a>"
+                ],
+                "photo_reference": "AUGGfZlynPpvYWiVzNPhv1SUR-MwdtWMccGnbkTxKWJb_bzEDkdMX14XghPGC4yBNilFsIPNCoNPjruxfSTpvv4_OOYONh4u34qXXAmw2wA7c5nBQlm_d2cA0uekUEQHZpEVAff6ZH8mRbpmLu1Kw1Yp-8MD_4khCHfsvSjjuw8U1BF1YSN5",
+                "width": 1040
+            },
+            {
+                "height": 750,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/110764207639321124571\">Jaenal abidin Jaenal</a>"
+                ],
+                "photo_reference": "AUGGfZnd9-e7v-41MEiyIRM9quDK-SEdZSlOvM34vLC1S03aV9kKZxR5IUyORy0G8_HG5AZ5gsXGSp8vFkor5eYX2VkQ46H-zJ213u0Bgi7iSBJZnN2Y3RbRhBxwM8Dm26ZRx8MM8MPmzCnn91VQUrPMzslogRuPOZgXXKiaxc4ritsfAxyT",
+                "width": 1000
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106501026211063363303\">Yudi Yulianto</a>"
+                ],
+                "photo_reference": "AUGGfZkcEEVY-WSIpNwK_40uUYx5yJdJtmZJBsHiT0YupQDPEPovHP2YQgum7szjPz7NfK5x91c-IGckbpb8s0dCWkADtD22F9nX9HO3AFVme0hrF_Eu-Ocy3DfFPjJG1UPQkQzVjBeadQIjdeZaM8cB5SWcTBSHhc4jvj6T_386dIKAl9Nz",
+                "width": 1844
+            },
+            {
+                "height": 890,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117585798854402597720\">Hanafi Ingah Jauhari</a>"
+                ],
+                "photo_reference": "AUGGfZkLueW1iYauyhc2vDB_0bigVQ5y8OzJsALLRRTLEJZaZIwXjtoq_o9JnuBOOE9A-8t8rVtz32bA80OXIpO7Dpj0P_vdcz_VXSG8Fqh1TYvz44-HcENminM1RrO7MbOayqste-kBSgYme6vwphmdZcO9KMP0ZwFsACwD9Z8wtUV0wPa5",
+                "width": 712
+            },
+            {
+                "height": 890,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117585798854402597720\">Hanafi Ingah Jauhari</a>"
+                ],
+                "photo_reference": "AUGGfZnGG2XjG3PXVo-FAoLBCTogEFVBNXX6JYusZD7aQQ1i0kK5IUkXyj2Qffof5XSryc-RvwKu_wZ_Jn7iVO-1F873a7HaQovkRnWfOn7myNvAS41eh9hs-Nx5NAS-I7ZlSUi38BxT-dhJGSsiu6WObx8J_6y7ZjP4zQp74PAoZ7KYTcUI",
+                "width": 712
+            },
+            {
+                "height": 360,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/108513032575743080525\">Syahid Maulidin</a>"
+                ],
+                "photo_reference": "AUGGfZn8pA4A4TWOhxI-P7zGiLuwO_jMeV50GvqPt9TkPPsC0GgY5dM0p79wWU5plY6mz0alqcmsOe2hws-48c-RPPevmhRTPuswSp6313dLI7mVYsizs6p9oJ3bSbg_OZ30ds1tXOe3Odq0XLF32eKDha1a7WwANO89HyzMpQszUHSbBpx5",
+                "width": 480
+            },
+            {
+                "height": 3264,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/104352592843426308263\">SYAIFUL WONG</a>"
+                ],
+                "photo_reference": "AUGGfZnH3mFL-ZbnCc5YKxP1YL0sndZNEh3wV6rhKhdpvMKGrRq_XCqMQSNgMPIyEifkvsjH1s1UVI1HbiD8wtl_m2xJRt3-qpjmpshNFEYxHY6TTD5LvsqPUORgox4zKgIieuKLcnagEeCBkuUDyaM15ax5Bb_fCeLv5mupD7mRmoFMIaLM",
+                "width": 1836
             }
         ],
-        "place_id": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
-        "plus_code": {
-            "compound_code": "4J47+4X Lebak Gede, Bandung City, West Java, Indonesia",
-            "global_code": "6P594J47+4X"
-        },
-        "rating": 5,
-        "reference": "ChIJ5aH7svPnaC4RkMIWI1JKFjI",
-        "reviews": [
-            {
-                "author_name": "Adi Firmansyah",
-                "author_url": "https://www.google.com/maps/contrib/101225978303835421435/reviews",
-                "language": "en",
-                "original_language": "id",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocIIDaJ8K23sz3hzE2khzPy6ex4lx44x7UGMTYjuLyWy0jiAXw=s128-c0x00000000-cc-rp-mo-ba3",
-                "rating": 5,
-                "relative_time_description": "4 years ago",
-                "text": "The place is clean, the kale is delicious & the price is affordable.",
-                "time": 1566394301,
-                "translated": true
-            },
-            {
-                "author_name": "Ikbal Ramadhan",
-                "author_url": "https://www.google.com/maps/contrib/110844662088464419607/reviews",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU1e3Mdp7-X0xL2TQuioAEEXC7vM0nUDAvPx-azLgZvyAUji8QUug=s128-c0x00000000-cc-rp-mo",
-                "rating": 5,
-                "relative_time_description": "a year ago",
-                "text": "",
-                "time": 1678025886,
-                "translated": false
-            },
-            {
-                "author_name": "aris cole",
-                "author_url": "https://www.google.com/maps/contrib/100667435816385498005/reviews",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU8Yj3qPdgEEOcJKfvOND6KRSQuJ2lK67M6Ru6G0Up_kd_2dDtw=s128-c0x00000000-cc-rp-mo",
-                "rating": 5,
-                "relative_time_description": "2 years ago",
-                "text": "",
-                "time": 1626802986,
-                "translated": false
-            },
-            {
-                "author_name": "Muhammad Amarudin",
-                "author_url": "https://www.google.com/maps/contrib/113581675584151002458/reviews",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXjmTH4m7x8iB-tyjwbqgNo5roluhlN3vNCqhBEhHrXwzVGl5mS=s128-c0x00000000-cc-rp-mo-ba3",
-                "rating": 5,
-                "relative_time_description": "3 years ago",
-                "text": "",
-                "time": 1613826916,
-                "translated": false
-            }
-        ],
-        "serves_beer": false,
-        "serves_dinner": true,
-        "serves_lunch": true,
-        "serves_wine": false,
-        "takeout": true,
+        "place_id": "ChIJf0dSgjnmaC4RshXo05MfahQ",
+        "reference": "ChIJf0dSgjnmaC4RshXo05MfahQ",
         "types": [
-            "restaurant",
-            "point_of_interest",
-            "food",
-            "establishment"
+            "locality",
+            "political"
         ],
-        "url": "https://maps.google.com/?cid=3609153868020499088",
-        "user_ratings_total": 4,
+        "url": "https://maps.google.com/?q=Bandung,+Bandung+City,+West+Java,+Indonesia&ftid=0x2e68e6398252477f:0x146a1f93d3e815b2",
         "utc_offset": 420,
-        "vicinity": "Jalan Hasanudin No.3, Lebakgede"
+        "vicinity": "Bandung",
+        "website": "http://www.bandung.go.id/index.php"
     }
 }

@@ -6,7 +6,7 @@ import BookMap from "../../../components/BookMap";
 
 const Booking = (props) => {
   const params = useLocalSearchParams();
-  
+
   const { originPlace, destinationPlace, type } = params;
 
   return (
