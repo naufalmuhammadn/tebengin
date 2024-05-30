@@ -28,6 +28,8 @@ export const getRides = async (id) => {
             status: rideData.status,
             user: userData.name,
             driver: driverData.name,
+            driverType: driverData.type,
+            driverMerk: driverData.merk,
             plat: driverData.plat,
         };
 
@@ -65,10 +67,12 @@ export const getRide = async (id) => {
         destination: rideData.destination,
         pickUp: rideData.pickUp,
         departureTime: rideData.departureTime,
-        price: formatPrice(rideData.price),
+        price: +rideData.price,
         status: rideData.status,
         user: userData.displayName,
         driver: driverData.name,
+        driverType: driverData.type,
+        driverMerk: driverData.merk,
         plat: driverData.plat,
         date: formatDate(rideData.date),
         rating: rideData.rating,
