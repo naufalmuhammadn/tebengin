@@ -5,8 +5,8 @@ import { Image, Text, View, TouchableOpacity, ActivityIndicator, SafeAreaView, S
 import { useNavigation } from "@react-navigation/native";
 
 import cancel from "../../../assets/images/cancel.png";
-import bike from "../../../assets/images/bike.png";
-import car from "../../../assets/images/car.png";
+import tebengride from "../../../assets/images/tebengride.png";
+import tebengcar from "../../../assets/images/tebengcar.png";
 
 import OrderDetail from "../../../components/OrderDetail";
 
@@ -64,16 +64,24 @@ const Orders = () => {
   const displayTabContent = () => {
     switch (activeTab) {
       case 'Ongoing':
+        if (ridesData.ongoing.length === 0) {
+          return (
+            <View className="flex-1 justify-center items-center">
+              <Text className=" text-gray-500">No ongoing orders</Text>
+            </View>
+          );
+        }
         return ridesData.ongoing.map(item => (
           <TouchableOpacity
             key={item.id}
             onPress={() => navigation.navigate('OrderDetail', { id: item.id })}
+            className="w-full"
           >
             <View className="py-2 px-6 flex flex-row items-center justify-between border-b border-[#BDBDBD] w-full">
-              <View className="flex flex-row items-center gap-2">
-                <Image source={bike} className="object-cover w-[60px] h-[60px]" />
-                <View>
-                  <Text className="text-sm">{item.destination}</Text>
+              <View className="flex flex-row items-center gap-2 w-full flex-1">
+                <Image source={item.driverType === 'car' ? tebengcar : tebengride} className="object-cover w-[60px] h-[60px]" />
+                <View className="flex-1">
+                  <Text className="text-sm" numberOfLines={2}>{item.destination}</Text>
                   <View className="flex flex-row items-center gap-2">
                     <Text className="text-xs ">{item.driver}</Text>
                     <View className="w-1 h-1 bg-black rounded-full" />
@@ -81,21 +89,29 @@ const Orders = () => {
                   </View>
                 </View>
               </View>
-              <Text className="text-xs ">{item.departureTime}</Text>
+              <Text className="text-xs">{item.departureTime}</Text>
             </View>
           </TouchableOpacity>
         ));
       case 'Completed':
+        if (ridesData.completed.length === 0) {
+          return (
+            <View className="flex-1 justify-center items-center">
+              <Text className=" text-gray-500">No completed orders</Text>
+            </View>
+          );
+        }
         return ridesData.completed.map(item => (
           <TouchableOpacity
             key={item.id}
             onPress={() => navigation.navigate('OrderDetail', { id: item.id })}
+            className="w-full"
           >
             <View className="py-2 px-6 flex flex-row items-center justify-between border-b border-[#BDBDBD] w-full">
-              <View className="flex flex-row items-center gap-2">
-                <Image source={bike} className="object-cover w-[60px] h-[60px]" />
-                <View>
-                  <Text className="text-sm">{item.destination}</Text>
+              <View className="flex flex-row items-center gap-2 w-full flex-1">
+                <Image source={item.driverType === 'car' ? tebengcar : tebengride} className="object-cover w-[60px] h-[60px]" />
+                <View className="flex-1">
+                  <Text className="text-sm" numberOfLines={2}>{item.destination}</Text>
                   <View className="flex flex-row items-center gap-2">
                     <Text className="text-xs ">{item.driver}</Text>
                     <View className="w-1 h-1 bg-black rounded-full" />
@@ -108,6 +124,13 @@ const Orders = () => {
           </TouchableOpacity>
         ));
       case 'Cancelled':
+        if (ridesData.cancelled.length === 0) {
+          return (
+            <View className="flex-1 justify-center items-center">
+              <Text className=" text-gray-500">No cancelled orders</Text>
+            </View>
+          );
+        }
         return ridesData.cancelled.map(item => (
           <TouchableOpacity
             key={item.id}
@@ -115,9 +138,9 @@ const Orders = () => {
             className="flex w-full"
           >
             <View className="py-2 px-6 flex flex-row items-center gap-2 border-b border-[#BDBDBD] w-full">
-              <Image source={car} className="object-cover w-[60px] h-[60px]" />
-              <View>
-                <Text className="text-sm">{item.destination}</Text>
+              <Image source={item.driverType === 'car' ? tebengcar : tebengride} className="object-cover w-[60px] h-[60px]" />
+              <View className="flex-1">
+                <Text className="text-sm" numberOfLines={2}>{item.destination}</Text>
                 <View className="flex flex-row items-center gap-2">
                   <Image source={cancel} className="object-cover w-[14px] h-[14px]" />
                   <Text className="text-xs">Tidak jadi nebeng</Text>
