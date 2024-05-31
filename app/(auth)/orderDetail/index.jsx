@@ -3,12 +3,12 @@ import { Image, Text, TextInput, View, TouchableOpacity, ActivityIndicator } fro
 import { Ionicons } from "@expo/vector-icons";
 import { Link, useLocalSearchParams, router } from "expo-router";
 
-import tebengride from "../assets/images/tebengride.png";
-import tebengcar from "../assets/images/tebengcar.png";
-import originPoint from "../assets/images/originPoint.png";
-import destinationPoint from "../assets/images/destinationPoint.png";
-import profilePic from "../assets/images/profile.png";
-import { getRide, updateRideRating } from "../app/api/rides";
+import tebengride from "../../../assets/images/tebengride.png";
+import tebengcar from "../../../assets/images/tebengcar.png";
+import originPoint from "../../../assets/images/originPoint.png";
+import destinationPoint from "../../../assets/images/destinationPoint.png";
+import profilePic from "../../../assets/images/profile.png";
+import { getRide, updateRideRating } from "../../api/rides";
 
 export default function OrderSummary() {
   const { id } = useLocalSearchParams();
